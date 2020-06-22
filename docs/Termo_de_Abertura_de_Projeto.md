@@ -48,3 +48,6 @@ O sistema irá gerar relatórios com o objetivo de manter o usuário informado s
 
 <h2>4.	Descrição dos produtos/entregáveis do projeto.</h2>
 <p>Por parte da documentação temos: Documento de visão, Modelo Conceitual e Modelo de Dados, Analise de Ponto de Função, Lista de User Stories, Projeto Arquitetural, Termo de Abertura de Projeto, Termo de Fechamento de Projeto. Como também a entrega do próprio software.</p>
+
+<h2>5.	Restrições para o projeto</h2>
+<p>Prazo de entrega de 6 meses, Necessidade de treinamento da equipe, Dificuldade de se reunir com o grupo devido distância das residências, fatores climáticos quando o sistema estiver operante.</p>
