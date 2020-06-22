@@ -45,3 +45,6 @@ O sistema irá gerar relatórios com o objetivo de manter o usuário informado s
 
 <h2>3.	Justificativa do projeto</h2>
 <p>Temos em mente que a ideia de um E-commerce focado na venda de livros já existe no mercado, no entanto, pretendemos inovar na questão das funcionalidades desse site, algumas das funcionalidades planejadas até agora foram: A própria adição de livros por parte dos usuários, uma geração de relatórios que vão conter suas transações e informações detalhadas das compras, entre outras características/funcionalidades que serão adicionadas no decorrer do projeto.</p>
+
+<h2>4.	Descrição dos produtos/entregáveis do projeto.</h2>
+<p>Por parte da documentação temos: Documento de visão, Modelo Conceitual e Modelo de Dados, Analise de Ponto de Função, Lista de User Stories, Projeto Arquitetural, Termo de Abertura de Projeto, Termo de Fechamento de Projeto. Como também a entrega do próprio software.</p>
