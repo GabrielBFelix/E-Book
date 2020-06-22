@@ -42,3 +42,6 @@
 <h2>2.	Objetivos do projeto</h2>
 <p>O Sistema a ser desenvolvido será um sistema de compras de livros, onde o usuário cadastrado poderá comprar livros que estão disponíveis, tais livros serão adicionados pelos próprios usuários, ou seja, os usuários terão opções de comprar / vender.
 O sistema irá gerar relatórios com o objetivo de manter o usuário informado sobre os tipos de transações que ele fez e mostrando informações sobre os livros que ele colocou a venda.</p>
+
+<h2>3.	Justificativa do projeto</h2>
+<p>Temos em mente que a ideia de um E-commerce focado na venda de livros já existe no mercado, no entanto, pretendemos inovar na questão das funcionalidades desse site, algumas das funcionalidades planejadas até agora foram: A própria adição de livros por parte dos usuários, uma geração de relatórios que vão conter suas transações e informações detalhadas das compras, entre outras características/funcionalidades que serão adicionadas no decorrer do projeto.</p>
