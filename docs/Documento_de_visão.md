@@ -62,3 +62,13 @@
       </table>
     </li>
   </ul>
+  <h2>3. Perfis dos usuários</h2>
+  <p>O sistema poderá ser utilizado por diversos usuários. Temos os seguintes perfis:</p>
+  <dl>
+    <dt>Administrador</dt>
+    <dd>Este usuário administra e modera o aplicativo e seus usuários.</dd>
+    <dt>Leitor</dt>
+    <dd>Este usuário utiliza o sistema para comprar e ler livros.</dd>
+    <dt>Vendedor</dt>
+    <dd>Este usuário utiliza o sistema para publicar seus livros.</dd>
+  </dl>
