@@ -51,3 +51,43 @@ O sistema irá gerar relatórios com o objetivo de manter o usuário informado s
 
 <h2>5.	Restrições para o projeto</h2>
 <p>Prazo de entrega de 6 meses, Necessidade de treinamento da equipe, Dificuldade de se reunir com o grupo devido distância das residências, fatores climáticos quando o sistema estiver operante.</p>
+
+
+<h2>6.	Partes interessadas</h2>
+<p>A equipe e o Cliente</p>
+
+<h2>7.	Riscos identificados</h2>
+<table>
+	<tbody>
+		<tr>
+			<th>Data</th>
+			<th>Risco</th>
+			<th>Consequência</th>
+			<th>Providência/Solução</th>
+		</tr>
+		<tr>
+			<td>22/06/2020</td>
+			<td>Usuário não gostar da interface</td>
+			<td>Insatisfação por parte do Cliente</td>
+			<td>Desenvolver a interface com o feedback do usuário</td>
+		</tr>
+		<tr>
+			<td>22/06/2020</td>
+			<td>Concorrência</td>
+			<td>Falta de destaque no mercado</td>
+			<td>Analisar o motivo da preferência dos usuários pela concorrência</td>
+		</tr>
+		<tr>
+			<td>22/06/2020</td>
+			<td>Tempo de treinamento</td>
+			<td>Distribuição do tempo entre desenvolvimento e treinamento</td>
+			<td>Planejar e reforçar os estudos das tecnologias utilizadas</td>
+		</tr>
+		<tr>
+			<td>22/06/2020</td>
+			<td>Falta de experiência dos desenvolvedores</td>
+			<td>Utilização de formas de programação obsoletas causando outros problemas como a diminuição na performance.</td>
+			<td>Estudar as melhores tecnicas para melhorar a perfomance e otimização do sistema</td>
+		</tr>
+	</tbody>
+</table>
