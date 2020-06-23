@@ -72,3 +72,46 @@
     <dt>Vendedor</dt>
     <dd>Este usuário utiliza o sistema para publicar seus livros.</dd>
   </dl>
+  <h2>4. Tabela de Riscos</h2>
+<table>
+  <tr>
+    <th>Data</th>
+    <th>Risco</th>
+    <th>Prioridade</th>
+    <th>Responsável</th>
+    <th>Status</th>
+    <th>Providência/Solução</th>
+  </tr>
+  <tr>
+    <td>23/06/2020</td>
+    <td>Usuário não gostar da interface</td>
+    <td>Média</td>
+    <td>Todos</td>
+    <td>Vigente</td>
+    <td>Desenvolver a interface com o feedback do usuário</td>
+  </tr>
+  <tr>
+    <td>23/06/2020</td>
+    <td>Concorrência</td>
+    <td>Baixa</td>
+    <td>Todos</td>
+    <td>Vigente</td>
+    <td>Analisar o motivo da preferência dos usuários pela concorrência</td>
+  </tr>
+  <tr>
+    <td>23/06/2020</td>
+    <td>Tempo de treinamento</td>
+    <td>Alta</td>
+    <td>Todos</td>
+    <td>Vigente</td>
+    <td>Planejar e reforçar os estudos das tecnologias utilizadas</td>
+  </tr>
+  <tr>
+    <td>23/06/2020</td>
+    <td>Falta de experiência dos desenvolvedores</td>
+    <td>Alta</td>
+    <td>Todos</td>
+    <td>Vigente</td>
+    <td>Estudar as melhores tecnicas para melhorar a perfomance e otimização do sistema</td>
+  </tr>
+</table>
