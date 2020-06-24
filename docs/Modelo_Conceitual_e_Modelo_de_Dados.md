@@ -14,3 +14,9 @@
 ## 1.1 Descrição do Documento
 
 Este documento tem como objetivo apresentar e detalhar o projeto E-Book, de forma que apoie a compreensão do seu desenvolvimento. Assim sendo, é possivel identificar como ocorre a comunicação entre as entidades, os tipos de dados que serão trabalhado e os tipos de funcionalidades necessárias para pleno funcionamento do software.
+
+## 1.2 Histórico de Revisões
+
+| Data | Versão | Descrição | Autor |
+| ---- | ------ | --------- | ----- |
+|      |        |           |       |
