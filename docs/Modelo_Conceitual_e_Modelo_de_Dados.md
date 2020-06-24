@@ -22,3 +22,17 @@ Este documento tem como objetivo apresentar e detalhar o projeto E-Book, de form
 |      |        |           |       |
 
 # 2 Modelo Conceitual
+
+## 2.1 Descrição das Entidades
+
+Usuário: Entidade que representará as pessoas que acessam o sistema. Além das próprias informações armazenadas, eles tem acesso a compra de livros que estão a venda.
+
+Endereço: Entidade dependente de usuário, contendo informações de sua localização.
+
+Livros: Produto que vai ser vendido, contendo as mais diversas informações necessarias para o comprador.
+
+Compra: Entidade que vai estabelecer a relação entre o Usuario e o Livro que deseja comprar.
+
+Venda: Entidade que vai estabelecer relação com a compra e suas informações.
+
+Comentários: Entidade que vai estabelecer a relação entre usuário e livro e armazenar seus comentários.
