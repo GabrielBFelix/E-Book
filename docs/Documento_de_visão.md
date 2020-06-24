@@ -52,7 +52,43 @@
   </tbody>
 </table>
 
+<h2>Matriz de Competências</h2>
 
+  <table>
+  <thead>
+    <tr>
+      <th>Membro</th>
+      <th>Competências</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+      <td>Darlan</td>
+      <td>Suas habilidades (Tecnologias que sabe)</td>
+    </tr>
+    <tr>
+      <td>Gabriel</td>
+      <td>Suas habilidades (Tecnologias que sabe)</td>
+    </tr>
+    <tr>
+      <td>Guilherme</td>
+      <td>Suas habilidades (Tecnologias que sabe)</td>
+    </tr>
+    <tr>
+      <td>Juninho</td>
+      <td>Suas habilidades (Tecnologias que sabe)</td>
+    </tr>
+    <tr>
+      <td>Evandir</td>
+      <td>Suas habilidades (Tecnologias que sabe)</td>
+    </tr>
+    <tr>
+      <td>Tiago</td>
+      <td>Html , Css , Js, Nodejs, React, Redux, Express , MongoDB</td>
+    </tr>
+  </tbody>
+</table>
 
   <h2>2. Descrição geral </h2>
   <ul>
