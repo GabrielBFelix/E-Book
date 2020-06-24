@@ -6,6 +6,54 @@
     <li>O Sistema a ser desenvolvido será um sistema de compras de livros, onde o usuário cadastrado poderá comprar livros que estão disponíveis, tais livros serão adicionados pelos próprios usuários, ou seja, os usuários terão opções de comprar / vender. </li>
     <li>O sistema irá gerar relatórios com o objetivo de manter o usuário informado sobre os tipos de transações que ele fez e mostrando informações sobre os livros que ele colocou a venda. </li>
   </ul>
+
+<h2>Equipe e definição de papeis</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Membro</th>
+      <th>Papel</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+      <td>Darlan</td>
+      <td>Seu Papel</td>
+      <td>Seu email</td>
+    </tr>
+    <tr>
+      <td>Gabriel</td>
+      <td>Seu Papel</td>
+      <td>Seu email</td>
+    </tr>
+    <tr>
+      <td>Guilherme</td>
+      <td>Seu Papel</td>
+      <td>Seu email</td>
+    </tr>
+    <tr>
+      <td>Juninho</td>
+      <td>Seu Papel</td>
+      <td>Seu email</td>
+    </tr>
+    <tr>
+      <td>Evandir</td>
+      <td>Seu Papel</td>
+      <td>Seu email</td>
+    </tr>
+    <tr>
+      <td>Tiago</td>
+      <td>Analista</td>
+      <td>tiago_jvo@outlook.com</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
   <h2>2. Descrição geral </h2>
   <ul>
     <li><h3>Requisitos Funcionais :</h3>
