@@ -36,3 +36,7 @@ Compra: Entidade que vai estabelecer a relação entre o Usuario e o Livro que d
 Venda: Entidade que vai estabelecer relação com a compra e suas informações.
 
 Comentários: Entidade que vai estabelecer a relação entre usuário e livro e armazenar seus comentários.
+
+# 3 Modelo de Dados
+
+![imagem](https://github.com/antoniofern/E-Book/blob/master/docs/modelo_de_dados.PNG)
