@@ -40,3 +40,5 @@ Comentários: Entidade que vai estabelecer a relação entre usuário e livro e 
 # 3 Modelo de Dados
 
 ![imagem](https://github.com/antoniofern/E-Book/blob/master/docs/modelo_de_dados.PNG)
+
+# 4 Dicionário de Dados
