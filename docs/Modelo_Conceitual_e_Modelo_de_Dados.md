@@ -20,3 +20,5 @@ Este documento tem como objetivo apresentar e detalhar o projeto E-Book, de form
 | Data | Versão | Descrição | Autor |
 | ---- | ------ | --------- | ----- |
 |      |        |           |       |
+
+# 2 Modelo Conceitual
