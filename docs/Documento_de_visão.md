@@ -35,9 +35,9 @@
       <td>Seu email</td>
     </tr>
     <tr>
-      <td>Juninho</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Antonio Fernandes</td>
+      <td>Analista</td>
+      <td>antoniofern.n@gmail.com</td>
     </tr>
     <tr>
       <td>Evandir</td>
@@ -76,8 +76,8 @@
       <td>Suas habilidades (Tecnologias que sabe)</td>
     </tr>
     <tr>
-      <td>Juninho</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Antonio Fernandes</td>
+      <td>HTML, CSS, Javascript, NodeJS</td>
     </tr>
     <tr>
       <td>Evandir</td>
