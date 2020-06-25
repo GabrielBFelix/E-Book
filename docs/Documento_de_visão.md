@@ -31,13 +31,13 @@
     </tr>
     <tr>
       <td>Guilherme</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Analista</td>
+      <td>guilherme.felipe149@gmail.com</td>
     </tr>
     <tr>
-      <td>Juninho</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Antonio Fernandes</td>
+      <td>Analista</td>
+      <td>antoniofern.n@gmail.com</td>
     </tr>
     <tr>
       <td>Evandir</td>
@@ -73,11 +73,11 @@
     </tr>
     <tr>
       <td>Guilherme</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Python, C, Java, HTML, CSS, JavaScript</td>
     </tr>
     <tr>
-      <td>Juninho</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Antonio Fernandes</td>
+      <td>HTML, CSS, Javascript, NodeJS</td>
     </tr>
     <tr>
       <td>Evandir</td>
