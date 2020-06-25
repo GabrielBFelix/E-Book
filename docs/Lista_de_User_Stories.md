@@ -136,3 +136,48 @@ O sistema deve ser capaz realizar o cadastro de compras de livro realizados pelo
   </tr>
 </table>
 
+<table class="tg">
+  <tr>
+    <th class="tg-8jgo" colspan="4">User Story US04 - Lista de desejo</th>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Descrição</td>
+    <td class="tg-8jgo" colspan="2">
+O sistema deverá fornercer uma lista de desejo, onde o usuário poderá colocar os itens aos quais ele tem interesse. 
+</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Requisitos Envolvidos</td>
+    <td class="tg-8jgo" colspan="2">RF022, RF023, RF024, RF025</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Prioridade</td>
+    <td class="tg-8jgo" colspan="2">Opcional</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo">Estimativa:</td>
+    <td class="tg-8jgo"></td>
+    <td class="tg-8jgo">Tempo gasto (real):</td>
+    <td class="tg-8jgo"></td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Tamanho Funcional</td>
+    <td class="tg-8jgo" colspan="2"></td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="4">Testes de Aceitação (TA)</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Código</td>
+    <td class="tg-8jgo" colspan="2">Descrição</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">TA01.01</td>
+    <td class="tg-8jgo" colspan="2">
+</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">TA01.02</td>
+    <td class="tg-8jgo" colspan="2"></td>
+  </tr>
+</table>
