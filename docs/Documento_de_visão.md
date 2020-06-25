@@ -65,7 +65,7 @@
   <tbody>
   <tr>
       <td>Darlan</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Python, C/C++, Java, SQL, HTML, CSS, frameworks como Django</td>
     </tr>
     <tr>
       <td>Gabriel</td>
