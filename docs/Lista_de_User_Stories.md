@@ -45,3 +45,47 @@ O usuário informa, na tela Registrar livros, todos os dados para registrar o li
     <td class="tg-8jgo" colspan="2"></td>
   </tr>
 </table>
+
+<table class="tg">
+  <tr>
+    <th class="tg-8jgo" colspan="4">User Story US02 - Manter Cliente</th>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Descrição</td>
+    <td class="tg-8jgo" colspan="2">O sistema deverá ser capaz de cadastrar os usuários que poderão acessar o sistema, além de o usuário poder atualizar informações futuramente, bem como excluir a sua conta do sistema.</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Requisitos Envolvidos</td>
+    <td class="tg-8jgo" colspan="2">RF001, RF002, RF003</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Prioridade</td>
+    <td class="tg-8jgo" colspan="2">Essencial</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo">Estimativa:</td>
+    <td class="tg-8jgo"></td>
+    <td class="tg-8jgo">Tempo gasto (real):</td>
+    <td class="tg-8jgo"></td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Tamanho Funcional</td>
+    <td class="tg-8jgo" colspan="2"></td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="4">Testes de Aceitação (TA)</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Código</td>
+    <td class="tg-8jgo" colspan="2">Descrição</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">TA01.01</td>
+    <td class="tg-8jgo" colspan="2">
+</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">TA01.02</td>
+    <td class="tg-8jgo" colspan="2"></td>
+  </tr>
+</table>
