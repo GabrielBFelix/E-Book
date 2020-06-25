@@ -21,8 +21,8 @@
   <tbody>
   <tr>
       <td>Darlan</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Analista</td>
+      <td>darlan.acari@gmail.com</td>
     </tr>
     <tr>
       <td>Gabriel</td>
