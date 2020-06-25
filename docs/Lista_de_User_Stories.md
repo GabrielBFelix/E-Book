@@ -135,4 +135,49 @@ O sistema deve ser capaz realizar o cadastro de compras de livro realizados pelo
     <td class="tg-8jgo" colspan="2"></td>
   </tr>
 </table>
+<table class="tg">
+  <tr>
+    <th class="tg-8jgo" colspan="4">User Story US04 - Manter Comentário</th>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Descrição</td>
+    <td class="tg-8jgo" colspan="2">
+Os usuários devem ser capazes de fazer um comentário sobre um livro, além de o usuário poder atualizar suas informações futuramente, bem como excluir seu comentário.
+</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Requisitos Envolvidos</td>
+    <td class="tg-8jgo" colspan="2">RF031, RF032, RF033, RF034</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Prioridade</td>
+    <td class="tg-8jgo" colspan="2">Opcional</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo">Estimativa:</td>
+    <td class="tg-8jgo"></td>
+    <td class="tg-8jgo">Tempo gasto (real):</td>
+    <td class="tg-8jgo"></td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Tamanho Funcional</td>
+    <td class="tg-8jgo" colspan="2"></td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="4">Testes de Aceitação (TA)</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">Código</td>
+    <td class="tg-8jgo" colspan="2">Descrição</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">TA01.01</td>
+    <td class="tg-8jgo" colspan="2">
+</td>
+  </tr>
+  <tr>
+    <td class="tg-8jgo" colspan="2">TA01.02</td>
+    <td class="tg-8jgo" colspan="2"></td>
+  </tr>
+</table>
 
