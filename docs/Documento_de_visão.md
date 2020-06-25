@@ -69,7 +69,7 @@
     </tr>
     <tr>
       <td>Gabriel</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Html, Css, testes web usando Protractor e Jasmine, testes mobile android usando Espresso, Django</td>
     </tr>
     <tr>
       <td>Guilherme</td>
