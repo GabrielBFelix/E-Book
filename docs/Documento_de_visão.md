@@ -65,11 +65,11 @@
   <tbody>
   <tr>
       <td>Darlan</td>
-      <td>Python, C/C++, Java, SQL, HTML, CSS, frameworks como Django</td>
+      <td>Suas habilidades (Tecnologias que sabe)</td>
     </tr>
     <tr>
       <td>Gabriel</td>
-      <td>Html, Css, testes web usando Protractor e Jasmine, testes mobile android usando Espresso, Django</td>
+      <td>Html, Css, Protractor, Jasmine, Espresso, Python, C, Django</td>
     </tr>
     <tr>
       <td>Guilherme</td>
