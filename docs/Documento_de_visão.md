@@ -21,18 +21,18 @@
   <tbody>
   <tr>
       <td>Darlan</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Analista</td>
+      <td>darlan.acari@gmail.com</td>
     </tr>
     <tr>
       <td>Gabriel</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Gerente</td>
+      <td>batistagabriel360@gmail.com</td>
     </tr>
     <tr>
       <td>Guilherme</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Analista</td>
+      <td>guilherme.felipe149@gmail.com</td>
     </tr>
     <tr>
       <td>Antonio Fernandes</td>
@@ -69,11 +69,11 @@
     </tr>
     <tr>
       <td>Gabriel</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Html, Css, Protractor, Jasmine, Espresso, Python, C, Django</td>
     </tr>
     <tr>
       <td>Guilherme</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Python, C, Java, HTML, CSS, JavaScript</td>
     </tr>
     <tr>
       <td>Antonio Fernandes</td>
