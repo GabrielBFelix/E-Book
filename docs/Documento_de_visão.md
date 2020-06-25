@@ -21,13 +21,13 @@
   <tbody>
   <tr>
       <td>Darlan</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Analista</td>
+      <td>darlan.acari@gmail.com</td>
     </tr>
     <tr>
       <td>Gabriel</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Gerente</td>
+      <td>batistagabriel360@gmail.com</td>
     </tr>
     <tr>
       <td>Guilherme</td>
@@ -35,9 +35,9 @@
       <td>guilherme.felipe149@gmail.com</td>
     </tr>
     <tr>
-      <td>Juninho</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Antonio Fernandes</td>
+      <td>Analista</td>
+      <td>antoniofern.n@gmail.com</td>
     </tr>
     <tr>
       <td>Evandir</td>
@@ -69,15 +69,15 @@
     </tr>
     <tr>
       <td>Gabriel</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Html, Css, Protractor, Jasmine, Espresso, Python, C, Django</td>
     </tr>
     <tr>
       <td>Guilherme</td>
       <td>Python, C, Java, HTML, CSS, JavaScript</td>
     </tr>
     <tr>
-      <td>Juninho</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Antonio Fernandes</td>
+      <td>HTML, CSS, Javascript, NodeJS</td>
     </tr>
     <tr>
       <td>Evandir</td>
@@ -127,6 +127,10 @@
         <tr><td>RF028</td><td>Autenticação de usuário</td><td>Operação realizada na hora do login para checar se os dados passados pelo usuário condizem com uma conta.</td></tr>
         <tr><td>RF029</td><td>Integração com algum sistema de pagamento</td><td>Integrar o site com uma api de pagamento que possa realizar as operações necessárias para realizar uma transação.</td></tr>
         <tr><td>RF030</td><td>Adicionar um livro a lista de desejos</td><td>Um Cliente pode salvar livros em uma lista de desejos para fácil visualização.</td></tr>
+        <tr><td>RF031</td><td>Operação de cadastrar comentario</td><td>Nessa operação o usuário poderá cadastrar comentarios aos quais serão vendidos</td></tr>
+        <tr><td>RF032</td><td>Operação de atualizar comentario</td><td>Nessa operação o usuário poderá atualizar seus comentarios</td></tr>
+        <tr><td>RF033</td><td>Operação de excluir comentario</td><td>Nessa operação o usuário poderá apagar um comentario</td></tr>
+        <tr><td>RF034</td><td>Operação de visualizar comentario</td><td>Nessa operação o usuário irá poder visualizar os comentarios</td></tr>
         </tbody>
       </table>
     </li>
