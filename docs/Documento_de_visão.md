@@ -31,8 +31,8 @@
     </tr>
     <tr>
       <td>Guilherme</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Analista</td>
+      <td>guilherme.felipe149@gmail.com</td>
     </tr>
     <tr>
       <td>Antonio Fernandes</td>
@@ -73,7 +73,7 @@
     </tr>
     <tr>
       <td>Guilherme</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Python, C, Java, HTML, CSS, JavaScript</td>
     </tr>
     <tr>
       <td>Antonio Fernandes</td>
