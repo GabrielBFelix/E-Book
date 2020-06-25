@@ -26,8 +26,8 @@
     </tr>
     <tr>
       <td>Gabriel</td>
-      <td>Seu Papel</td>
-      <td>Seu email</td>
+      <td>Gerente</td>
+      <td>batistagabriel360@gmail.com</td>
     </tr>
     <tr>
       <td>Guilherme</td>
