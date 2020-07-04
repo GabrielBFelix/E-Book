@@ -17,9 +17,9 @@ Este documento tem como objetivo apresentar e detalhar o projeto E-Book, de form
 
 ## 1.2 Histórico de Revisões
 
-| Data | Versão | Descrição | Autor |
-| ---- | ------ | --------- | ----- |
-|      |        |           |       |
+| Data       | Versão | Descrição                                                            | Autor                 |
+|------------|--------|----------------------------------------------------------------------|-----------------------|
+| 01/07/2020 | 0.1    | Criação do Dicionário de Dados, Modelo de Dados, e Modelo Conceitual | Gabriel Batista Félix |
 
 # 2 Modelo Conceitual
 
