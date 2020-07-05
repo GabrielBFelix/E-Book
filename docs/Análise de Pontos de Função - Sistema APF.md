@@ -11,3 +11,11 @@ ALI - Arquivos Lógicos Internos
 Lista de User Stories e os requisitos que estão associados.
 
 ### User Story US01 - Manter livro
+- RF005 - Cadastrar livro
+- RF006 - Atualizar livro
+- RF007 - Excluir livro
+
+### User Story US02 - Manter Cliente
+- RF001 - Cadastrar usuário
+- RF002 - Atualizar usuário
+- RF003 - Desativar conta
