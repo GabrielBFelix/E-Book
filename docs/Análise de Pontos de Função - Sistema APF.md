@@ -44,3 +44,56 @@ Lista de User Stories e os requisitos que estão associados.
 ### User Story US07 - Relatórios
 - RF026 - Gerar documento de venda
 - RF027 - Geerar documento de compra  
+
+# Tipos de Contagem
+
+### Contagem Indicativa (Ci)
+
+<table>
+<thead>
+<tr>
+<th><strong>ALI/AIE</strong></th>
+<th><strong>Entidades Relacionadas</strong></th>
+<th><strong>PF</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuário</td>
+<td>Usuário e Endereço</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Compra</td>
+<td>Compra</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Venda</td>
+<td>Venda</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Livro</td>
+<td>Livro</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Comentário</td>
+<td>Comentário e Usuário</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Pagamento</td>
+<td>Pagamento</td>
+<td>15</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td>Contagem Indicativa</td>
+<td></td>
+<td>190</td>
+</tr>
+</tfoot>
+</table>
