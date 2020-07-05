@@ -183,7 +183,7 @@ Os usuários devem ser capazes de fazer um comentário sobre um livro, além de 
 
 <table class="tg">
   <tr>
-    <th class="tg-8jgo" colspan="4">User Story US04 - Lista de desejo</th>
+    <th class="tg-8jgo" colspan="4">User Story US05 - Lista de desejo</th>
   </tr>
   <tr>
     <td class="tg-8jgo" colspan="2">Descrição</td>
