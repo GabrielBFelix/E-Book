@@ -84,6 +84,11 @@ Lista de User Stories e os requisitos que estão associados.
 <td>35</td>
 </tr>
 <tr>
+<td>Lista de Desejo</td>
+<td>Lista de Desejo, usuário e livro</td>
+<td>35</td>
+</tr>
+<tr>
 <td>Pagamento</td>
 <td>Pagamento</td>
 <td>15</td>
@@ -93,7 +98,7 @@ Lista de User Stories e os requisitos que estão associados.
 <tr>
 <td>Contagem Indicativa</td>
 <td></td>
-<td>190</td>
+<td>225</td>
 </tr>
 </tfoot>
 </table>
