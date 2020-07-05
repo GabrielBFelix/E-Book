@@ -96,9 +96,9 @@ Lista de User Stories e os requisitos que estão associados.
 </tbody>
 <tfoot>
 <tr>
-<td>Contagem Indicativa</td>
+<td><strong>Contagem Indicativa</strong></td>
 <td></td>
-<td>225</td>
+<td><strong>225</strong></td>
 </tr>
 </tfoot>
 </table>
