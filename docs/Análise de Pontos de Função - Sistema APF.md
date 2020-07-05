@@ -6,3 +6,8 @@ O sistema irá gerar relatórios com o objetivo de manter o usuário informado s
 PF - Pontos de Função
 APF - Análise de Pontos de Função
 ALI - Arquivos Lógicos Internos
+
+# Lista de User Stories - US
+Lista de User Stories e os requisitos que estão associados.
+
+### User Story US01 - Manter livro
