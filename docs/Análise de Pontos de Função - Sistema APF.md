@@ -19,3 +19,28 @@ Lista de User Stories e os requisitos que estão associados.
 - RF001 - Cadastrar usuário
 - RF002 - Atualizar usuário
 - RF003 - Desativar conta
+
+### User Story US03 - Cadastrar Compra
+- RF022 - Cadastrar compra
+- RF023 - Atualizar compra
+- RF024 - Cancelar compra
+- RF025 - Visualizar compra
+
+### User Story US04 - Pagamento
+- RF029 - Interação com sistema de pagamento
+
+### User Story US05 - Lista de desejo
+- RF022 - Cadastrar compra
+- RF023 - Atualizar compra
+- RF024 - Cancelar compra
+- RF025 - Visualizar compra
+
+### User Story US06 - Manter Comentário
+- RF031 - Cadastrar comentário
+- RF032 - Atualizar comentário
+- RF033 - Excluir comentário
+- RF034 - Visualizar comentários
+
+### User Story US07 - Relatórios
+- RF026 - Gerar documento de venda
+- RF027 - Geerar documento de compra  
