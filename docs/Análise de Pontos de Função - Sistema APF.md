@@ -30,10 +30,9 @@ Lista de User Stories e os requisitos que estão associados.
 - RF029 - Interação com sistema de pagamento
 
 ### User Story US05 - Lista de desejo
-- RF022 - Cadastrar compra
-- RF023 - Atualizar compra
-- RF024 - Cancelar compra
-- RF025 - Visualizar compra
+- RF030 - Cadastrar livro na lista de desejos
+- RF0?? - Remover livro da lista de desejos
+- RF0?? - Visualizar lista de desejos
 
 ### User Story US06 - Manter Comentário
 - RF031 - Cadastrar comentário
@@ -70,7 +69,7 @@ Lista de User Stories e os requisitos que estão associados.
 </tr>
 <tr>
 <td>Venda</td>
-<td>Venda</td>
+<td>Venda e compra</td>
 <td>35</td>
 </tr>
 <tr>
@@ -99,6 +98,178 @@ Lista de User Stories e os requisitos que estão associados.
 <td><strong>Contagem Indicativa</strong></td>
 <td></td>
 <td><strong>225</strong></td>
+</tr>
+</tfoot>
+</table>
+
+### Contagem Estimativa (Ce)
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Tipo de função</th>
+<th>Complexidade</th>
+<th>PF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuário</td>
+<td>ALI</td>
+<td>Baixa</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Compra</td>
+<td>ALI</td>
+<td>Baixa</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Venda</td>
+<td>ALI</td>
+<td>Baixa</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Livro</td>
+<td>ALI</td>
+<td>Baixa</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Comentário</td>
+<td>ALI</td>
+<td>Baixa</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Lista de desejo</td>
+<td>ALI</td>
+<td>Baixa</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Pagamento</td>
+<td>AIE</td>
+<td>Baixa</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Cadastrar usuário</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Atualizar usuário</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Desativar usuário</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cadastrar compra</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Atualizar compra</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cancelar compra</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Visualizar compra</td>
+<td>CE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Relatório venda</td>
+<td>CE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cadastrar livro</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Atualizar livro</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Excluir livro</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cadastrar comentário</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Atualizar comnentário</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Excluir comentário</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Visualizar comentário</td>
+<td>CE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Cadastra livro na lista de desejos</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Remover livro da lista de desejos</td>
+<td>EE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Visualizar lista de desejos</td>
+<td>CE</td>
+<td>Média</td>
+<td>4</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td><strong>Contagem estimativa</strong></td>
+<td></td>
+<td></td>
+<td><strong>119</strong></td>
 </tr>
 </tfoot>
 </table>
