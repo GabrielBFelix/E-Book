@@ -95,8 +95,8 @@ Exemplo:
 
 # Referências
 
-DEVMEDIA. **Introdução ao Padrão MVC**. Disponível em \&lt;[https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308](https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308); Acesso em: jul. de 2020
+DEVMEDIA. **Introdução ao Padrão MVC**. Disponível em <[https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308](https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308)>. Acesso em jul. de 2020
 
-KUMAR, Saket. **MVC Design Pattern.** Disponível em \&lt;[https://www.geeksforgeeks.org/mvc-design-pattern/](https://www.geeksforgeeks.org/mvc-design-pattern/);. Acesso em: jul. de 2020.
+KUMAR, Saket. **MVC Design Pattern.** Disponível em <[https://www.geeksforgeeks.org/mvc-design-pattern/](https://www.geeksforgeeks.org/mvc-design-pattern/)>. Acesso em jul. de 2020.
 
-REDUX. **Getting Started with Redux**. Disponível em \&lt;[https://redux.js.org/introduction/getting-started](https://redux.js.org/introduction/getting-started);. Acesso em jul. de 2020.
+REDUX. **Getting Started with Redux**. Disponível em <[https://redux.js.org/introduction/getting-started](https://redux.js.org/introduction/getting-started)>. Acesso em jul. de 2020.
