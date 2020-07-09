@@ -20,7 +20,7 @@
 | Tamanho Funcional |  |  |  |
 | Testes de Aceitação (TA) |  |  |  |
 | Código | Descrição |  |  |
-| TA01.01 | O usuário informa, na tela Registrar livros, todos os dados para registrar o livro corretamente, ao clicar em salvar ele é notificado com uma mensagem de sucesso, além disso, o usuário também será capaz de excluir e alterar detalhes de um livro. |  |  |
+| TA01.01 | - Cadastrar um livro e ver se aparece no “listar livros”.<br>- Excluir um livro e checar se foi excluído.<br>- Alterar os campos de um livro e checar se os campos alterados foram salvos corretamente.<br>- Checar se o usuário consegue ver os detalhes de um livro.<br>- Checar se ao preencher um livro com apenas os campos obrigatórios, ele é salvo normalmente. |  |  |
 
 
 | User Story US02 - Manter Cliente |  |  |  |
@@ -32,7 +32,7 @@
 | Tamanho Funcional |  |  |  |
 | Testes de Aceitação (TA) |  |  |  |
 | Código | Descrição |  |  |
-| TA01.01 |  |  |  |
+| TA01.01 | - Cadastrar um cliente e checar se foi salvo / cadastrado corretamente.<br>- Inativar um cliente e checar se foi inativado.<br>- Alterar os campos de um cliente e checar se os campos alterados foram salvos corretamente.<br>- Checar se os perfis de usuários são mostrados corretamente.<br>- Checar se ao preencher um cliente com apenas os campos obrigatórios, ele é salvo normalmente. |  |  |
 
 
 | User Story US03 - Manter Compra |  |  |  |
@@ -44,7 +44,7 @@
 | Tamanho Funcional |  |  |  |
 | Testes de Aceitação (TA) |  |  |  |
 | Código | Descrição |  |  |
-| TA01.01 |  |  |  |
+| TA01.01 | - Fazer uma compra e checar se foi feita corretamente.<br>- Cancelar uma compra e checar se foi cancelada.<br>- Atualizar os itens de uma compra e checar se os novos livros foram adicionados / retirados corretamente.<br>- Checar se os dados de uma compra finalizada foram salvos corretamente. |  |  |
 
 
 | User Story US04 - Pagamento |  |  |  |
@@ -56,7 +56,7 @@
 | Tamanho Funcional |  |  |  |
 | Testes de Aceitação (TA) |  |  |  |
 | Código | Descrição |  |  |
-| TA01.01 | O usuário deverá entrar com os dados do seu cartão de crédito como input , o sistema irá repassar esses dados para o back-end e o backend fará integração com um gateway para que a transação ocorra como esperado. |  |  |
+| TA01.01 | - Checar se ao preencher dados reais e corretos, se o sistema aceita o pagamento.<br>- Checar se ao preencher dados falsos / incorretos, se o sistema nega o pagamento |  |  |
 
 
 | User Story US05 - Lista de desejo |  |  |  |
@@ -68,7 +68,7 @@
 | Tamanho Funcional |  |  |  |
 | Testes de Aceitação (TA) |  |  |  |
 | Código | Descrição |  |  |
-| TA01.01 |  |  |  |
+| TA01.01 | - Inserir um livro na lista de desejos e checar se foi salvo corretamente.<br>- Remover um livro da lista de desejo e checar se foi removido.<br>- Checar se a visualização dos livros pela lista de desejos está funcionando. |  |  |
 
 
 | User Story US06 - Manter Comentário |  |  |  |
@@ -80,7 +80,7 @@
 | Tamanho Funcional |  |  |  |
 | Testes de Aceitação (TA) |  |  |  |
 | Código | Descrição |  |  |
-| TA01.01 |  |  |  |
+| TA01.01 | - Inserir um comentário em um livro e checar se foi salvo corretamente.<br>- remover um comentário de um livro e checar se foi removido.<br>- Checar se a visualização dos comentários de um livro está funcionando.<br>- Checar se ao editar e salvar um comentário ele é salvo corretamente. |  |  |
 
 
 | User Story US07 - Relatórios |  |  |  |
@@ -92,7 +92,7 @@
 | Tamanho Funcional |  |  |  |
 | Testes de Aceitação (TA) |  |  |  |
 | Código | Descrição |  |  |
-| TA01.01 | Quando o usuário fizer uma comprar ou alguma venda, essa informação deve ser guardada no banco de dados para que assim no futuro o usuário. |  |  |
+| TA01.01 | - Checar se os dados de um relatório foram todos gerados corretamente. |  |  |
 
 
 ## Referências
