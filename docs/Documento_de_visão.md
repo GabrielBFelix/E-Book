@@ -186,7 +186,7 @@
     <td>Alta</td>
     <td>Todos</td>
     <td>Vigente</td>
-    <td>Estudar boas práticas para melhorar o trabalho e a comunicação da equipe/td>
+    <td>Estudar boas práticas para melhorar o trabalho e a comunicação da equipe</td>
   </tr>
   <tr>
     <td>23/06/2020</td>
