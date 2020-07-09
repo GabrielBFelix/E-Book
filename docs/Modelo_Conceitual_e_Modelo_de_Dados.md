@@ -52,16 +52,13 @@ Comentários: Entidade que vai estabelecer a relação entre usuário e livro e 
 |            |     senha      |   VARCHAR    |  40 bytes   |              |                          Senha do usuário                          |
 |            |     email      |   VARCHAR    |  40 bytes   |              |                          email do usuário                          |
 |            |     ativo      |     BOOL     |   1 byte    |              |      Valor booleano para checar se o usuário ainda está ativo      |
-|            |    vendedor    |     BOOL     |   1 byte    |              | Valor booleano para checar se o usuário tem permissões de vendedor |
-|            |   permissoes   |              |             |              |                                                                    |
+|            |      role      |   VARCHAR    |  40 bytes   |              |              Campo identifica as permissões do usuário             |
 |  Endereço  |       id       |     INT      |   4 bytes   | PK, NOT NULL |     Numero de verificação do Endereço, gerado automaticamente      |
 |            |      pais      |   VARCHAR    |  40 bytes   |              |                       Pais local do Endereço                       |
 |            |      cep       |   VARCHAR    |  40 bytes   |              |                     CEP de onde o Usuário vive                     |
 |            |     estado     |   VARCHAR    |  40 bytes   |              |                         Estado do Endereço                         |
 |            |     bairro     |   VARCHAR    |  40 bytes   |              |                         Bairro do endereço                         |
 |            |      rua       |   VARCHAR    |  40 bytes   |              |                          Rua do Endereço                           |
-|            |    latitude    |              |             |              |                                                                    |
-|            |   longitude    |              |             |              |                                                                    |
 |   Compra   |       id       |     INT      |   4 bytes   | PK, NOT NULL |                      Chave primária da compra                      |
 |            |     preco      |     INT      |   4 bytes   |              |                       Valor total da compra                        |
 |            |      data      |     DATE     |   3 bytes   |              |                           Data da compra                           |

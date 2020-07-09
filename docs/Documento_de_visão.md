@@ -131,6 +131,8 @@
         <tr><td>RF032</td><td>Operação de atualizar comentario</td><td>Nessa operação o usuário poderá atualizar seus comentarios</td></tr>
         <tr><td>RF033</td><td>Operação de excluir comentario</td><td>Nessa operação o usuário poderá apagar um comentario</td></tr>
         <tr><td>RF034</td><td>Operação de visualizar comentario</td><td>Nessa operação o usuário irá poder visualizar os comentarios</td></tr>
+        <tr><td>RF035</td><td>Operação remover da lista de desejos<td>Nessa operação o usuário poderá remover um livro da lista de desejos</td></td></tr>
+        <tr><td>RF036</td><td>Operação visualizar lista de desejos<td>Nessa operação o usuário poderá sua lista de desejos</td></td></tr>
         </tbody>
       </table>
     </li>

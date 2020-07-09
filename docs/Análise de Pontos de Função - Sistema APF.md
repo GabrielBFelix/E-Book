@@ -34,8 +34,8 @@ Lista de User Stories e os requisitos que estão associados.
 
 ### User Story US05 - Lista de desejo
 - RF030 - Cadastrar livro na lista de desejos
-- RF0?? - Remover livro da lista de desejos
-- RF0?? - Visualizar lista de desejos
+- RF035 - Remover livro da lista de desejos
+- RF036 - Visualizar lista de desejos
 
 ### User Story US06 - Manter Comentário
 - RF031 - Cadastrar comentário
