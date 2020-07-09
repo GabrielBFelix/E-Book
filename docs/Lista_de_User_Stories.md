@@ -14,7 +14,7 @@
 ### User Story US01 - Manter livro
 
 Descrição: O sistema deve fazer o cadastro de livros a serem vendidos no sistema, onde o livro terá atributo tais como: autor, descrição, ano de lançamento, vendedor e entre outros, o usuário que cadastrou o livro poderá excluir e editar detalhes do livro posteriormente.<br>
-Requisitos envolvidos: RF005, RF006, RF007<br>
+Requisitos envolvidos: RF005, RF006, RF007, RF008<br>
 Prioridade: Essencial<br>
 Estimativa: 2h<br>
 Tempo Gasto (real): <br>
