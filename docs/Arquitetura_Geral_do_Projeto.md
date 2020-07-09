@@ -13,7 +13,7 @@ Este documento tem como objetivo apresentar a arquitetura geral do projeto E-Boo
 
 ## Visão Geral
 
-A linguagem de programação que será utilizada para desenvolver o sistema **E-Book** será JavaScript, vale salientar que serão utilizadas suas bibliotecas redux.js e react.js para o frontend, além de nodejs como runtime para utilização de js no backend.
+A linguagem de programação que será utilizada para desenvolver o sistema **E-Book** será JavaScript, vale salientar que serão utilizadas suas bibliotecas react.js para o frontend, além de nodejs como runtime para utilização de js no backend.
 
 A arquitetura básica a ser utilizada no sistema será o MVC, que é o acrônimo de Model-View-Controller, ou, em português, Modelo-Visualização-Controle. Esse padrão de arquitetura divide a aplicação em camadas, o que favorece, dentre outras coisas, a manutenção do software.
 
@@ -46,7 +46,7 @@ Exemplo:
 | --- | --- | --- |
 | Persistência | Banco de dados não relacional | MongoDB |
 | Back-end | Application Programming Interface | Nodejs (Express) |
-| Front-End | Interface de comunicação com o usuário do portal. | HTML, CSS, JS, React, Redux |
+| Front-End | Interface de comunicação com o usuário do portal. | HTML, CSS, JS, React|
 | Tratamento de exceções | Camada para tratar as exceções criando interações diferentes para usuários e técnicos. | Express (nodejs) |
 | Build | Programação da IDE para validação do código fonte. | Visual Studio Team System Foundation Server. |
 | Deploy | Configuração da IDE de deploy. | Visual Studio Team System Foundation Server. |
@@ -98,5 +98,3 @@ Exemplo:
 DEVMEDIA. **Introdução ao Padrão MVC**. Disponível em <[https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308](https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308)>. Acesso em jul. de 2020
 
 KUMAR, Saket. **MVC Design Pattern.** Disponível em <[https://www.geeksforgeeks.org/mvc-design-pattern/](https://www.geeksforgeeks.org/mvc-design-pattern/)>. Acesso em jul. de 2020.
-
-REDUX. **Getting Started with Redux**. Disponível em <[https://redux.js.org/introduction/getting-started](https://redux.js.org/introduction/getting-started)>. Acesso em jul. de 2020.
