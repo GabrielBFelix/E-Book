@@ -8,7 +8,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   
   const handleSubmit= async() =>{
-    const result = await axios.post('http://localhost:3001/api/auth/login',{email, password});
+    const result = await axios.post('http://localhost:3000/api/auth/login',{email, password});
     console.log(result);
   }
 
@@ -17,11 +17,13 @@ function LoginPage() {
       <p>Tela Login</p>
       <div className="inputs">
         <div>
+          <p>Nome</p>
           <input type="text" name ="email" value={email} 
           onChange={(event)=>setEmail(event.target.value)}></input>
         </div>
 
         <div>
+          <p>Senha</p>
           <input type="password" name="password" value={password} 
           onChange={(event)=>setPassword(event.target.value)}></input>
         </div>
