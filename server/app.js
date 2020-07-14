@@ -17,8 +17,10 @@ mongoose.connect(DB, {
 app.use(express.json());
 
 const authRoutes = require('./routes/auth.routes');
+const bookRoutes = require('./routes/book.routes');
 
 app.use('/api/auth' , authRoutes);
+app.use('/api/books' , bookRoutes)
 
 
 const PORT = process.env.PORT || config.get('PORT') || 3000;
