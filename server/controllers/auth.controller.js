@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-const User = require('../models/user.models');
+const User = require('../models/user.model');
 
 const catchAsync = require('../utils/catchAsync');
 
@@ -10,6 +10,8 @@ exports.signUp = catchAsync(async (req, resp, next) => {
   const { email, password, passwordConfirm, username, address } = req.body;
 
   const newUser = await User.create({ email, password, passwordConfirm, username, address });
+
+  newUser.password = undefined;
 
   const token = jwt.sign({ newUser }, config.get('JWT.SECRET_KEY'), { expiresIn: config.get('JWT.EXPIRES_IN') });
 
@@ -33,7 +35,7 @@ exports.login = catchAsync(async (req, resp, next) => {
 
   const user = await User.findOne({ email }).select('+password');
 
-  if (!user || (await !user.comparePasswords(password, user.password))) {
+  if (!user || !(await user.comparePasswords(password, user.password))) {
     return next(new AppError('Incorrect email or password', 401));
   }
 
