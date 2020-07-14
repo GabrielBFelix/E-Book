@@ -65,7 +65,7 @@
   <tbody>
   <tr>
       <td>Darlan</td>
-      <td>Suas habilidades (Tecnologias que sabe)</td>
+      <td>Python, C/C++, Java, HTML, CSS, Django, SQL</td>
     </tr>
     <tr>
       <td>Gabriel</td>
@@ -174,23 +174,7 @@
   </tr>
   <tr>
     <td>23/06/2020</td>
-    <td>Usuário não gostar da interface</td>
-    <td>Média</td>
-    <td>Todos</td>
-    <td>Vigente</td>
-    <td>Desenvolver a interface com o feedback do usuário</td>
-  </tr>
-  <tr>
-    <td>23/06/2020</td>
-    <td>Concorrência</td>
-    <td>Baixa</td>
-    <td>Todos</td>
-    <td>Vigente</td>
-    <td>Analisar o motivo da preferência dos usuários pela concorrência</td>
-  </tr>
-  <tr>
-    <td>23/06/2020</td>
-    <td>Tempo de treinamento</td>
+    <td>Falta do domínio tecnológico</td>
     <td>Alta</td>
     <td>Todos</td>
     <td>Vigente</td>
@@ -202,6 +186,22 @@
     <td>Alta</td>
     <td>Todos</td>
     <td>Vigente</td>
-    <td>Estudar as melhores tecnicas para melhorar a perfomance e otimização do sistema</td>
+    <td>Estudar boas práticas para melhorar o trabalho e a comunicação da equipe</td>
+  </tr>
+  <tr>
+    <td>23/06/2020</td>
+    <td>Insatisfação do Cliente</td>
+    <td>Alta</td>
+    <td>Todos</td>
+    <td>Vigente</td>
+    <td>Fazer um bom trabalho de implementação, documentação e comunicação com o cliente</td>
+  </tr>
+  <tr>
+    <td>23/06/2020</td>
+    <td>Mudança de tecnologías</td>
+    <td>Média</td>
+    <td>Todos</td>
+    <td>Vigente</td>
+    <td>Sempre haver pessoas com diferentes conhecimentos em várias tecnologías</td>
   </tr>
 </table>
