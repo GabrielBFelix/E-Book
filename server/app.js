@@ -1,6 +1,7 @@
 const express = require('express');
 const config = require('config');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
 
@@ -15,6 +16,7 @@ mongoose.connect(DB, {
 
 
 app.use(express.json());
+app.use(cors())
 
 const authRoutes = require('./routes/auth.routes');
 const bookRoutes = require('./routes/book.routes');

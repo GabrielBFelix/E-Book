@@ -1,10 +1,11 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
+const { promisify } = require('util');
+
 const User = require('../models/user.model');
 
 const catchAsync = require('../utils/catchAsync');
-
 
 exports.signUp = catchAsync(async (req, resp, next) => {
   const { email, password, passwordConfirm, username, address } = req.body;
@@ -48,4 +49,26 @@ exports.login = catchAsync(async (req, resp, next) => {
       user,
     },
   });
+});
+
+exports.protect = catchAsync(async (req, resp, next) => {
+  let token;
+
+  if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+    token = req.headers.authorization.split(' ')[1];
+  } else {
+    return next(new AppError('Please provide a valid token', '400'));
+  }
+
+  const decoded = await promisify(jwt.verify)(token, config.get('JWT.SECRET_KEY'));
+
+  const currentUser = await User.findById(decoded.id);
+
+  if (!currentUser) {
+    return next(new AppError('User do not exits', '404'));
+  }
+
+  req.user = currentUser;
+  resp.locals.user = currentUser;
+  next();
 });

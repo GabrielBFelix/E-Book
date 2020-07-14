@@ -44,14 +44,6 @@ const bookSchema = new mongoose.Schema(
     quantity: {
       type: Number,
       default: 0,
-      validate: {
-        message: 'Invalid quantity',
-        validator: function (value) {
-          console.log(value);
-
-          return this.quantity - value >= 0;
-        },
-      },
     },
 
     ratingsQuantity: {
