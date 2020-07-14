@@ -20,9 +20,11 @@ app.use(cors())
 
 const authRoutes = require('./routes/auth.routes');
 const bookRoutes = require('./routes/book.routes');
+const globalErrorHandler = require('./controllers/error.controller');
 
 app.use('/api/auth' , authRoutes);
-app.use('/api/books' , bookRoutes)
+app.use('/api/books' , bookRoutes);
+app.use(globalErrorHandler)
 
 
 const PORT = process.env.PORT || config.get('PORT') || 3000;
