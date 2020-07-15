@@ -83,9 +83,9 @@ exports.getOne = (Model, populateOptions = null) =>
   });
 exports.getAll = (Model) =>
   catchAsync(async (req, resp, next) => {
-    const filter = {};
+    let filter = {};
 
-    if (req.params.bookId) filter = { book: req.params.bookId };
+    if (req.params.book) filter = { book: req.params.book };
 
     let apiFeatures = new ApiFeatures(Model.find(filter), req.query).filter().sort().limitFields().paginate();
 

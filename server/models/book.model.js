@@ -82,6 +82,19 @@ bookSchema.pre('save', function (next) {
   return next();
 });
 
+bookSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'book',
+});
+
+bookSchema.pre(/find/, function () {
+  this.populate({
+    path: 'reviews',
+    select: 'review rating',
+  });
+});
+
 const Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book;

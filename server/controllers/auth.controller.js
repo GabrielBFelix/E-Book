@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-
 const { promisify } = require('util');
 
 const User = require('../models/user.model');
@@ -25,12 +24,10 @@ exports.signUp = catchAsync(async (req, resp, next) => {
 
   const newUser = await User.create({ email, password, passwordConfirm, username, address });
 
-  return createAndSendToken(newUser.id, resp)
-  
+  return createAndSendToken(newUser.id, resp);
 });
 
 exports.login = catchAsync(async (req, resp, next) => {
-
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -39,11 +36,11 @@ exports.login = catchAsync(async (req, resp, next) => {
 
   const user = await User.findOne({ email }).select('+password');
 
-  if (!user || !(await user.comparePasswords(password, user.password))) {
+  if (!user || !user.active || !(await user.comparePasswords(password, user.password))) {
     return next(new AppError('Incorrect email or password', 401));
   }
 
-  return createAndSendToken(user.id , resp)
+  return createAndSendToken(user.id, resp);
 });
 
 exports.protect = catchAsync(async (req, resp, next) => {
@@ -67,3 +64,10 @@ exports.protect = catchAsync(async (req, resp, next) => {
   resp.locals.user = currentUser;
   next();
 });
+
+exports.restrictTo = (...roles) => (req, resp, next) => {
+  if (!roles.includes(req.user.roles)) {
+    return next(new AppError('Unauthorized', '403'));
+  }
+  return next();
+};
