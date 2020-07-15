@@ -1,12 +1,13 @@
 import React from "react";
-import LoginPage from "./pages/login/LoginPage";
-import CadastroPage from "./pages/cadastro/CadastroPage";
+import LoginPage from "./pages/login";
+import CadastroPage from "./pages/cadastro";
 import Livro from "./pages/cadastro_livro";
+import Routes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <Livro />
+      <Routes />
     </div>
   );
 }

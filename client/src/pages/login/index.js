@@ -29,6 +29,7 @@ function LoginPage() {
         </div>
         <button onClick={handleSubmit}>Login</button>
       </div>
+      <a href="/cadastro">Cliente novo? Cadastre-se</a>
     </div>
   );
 }

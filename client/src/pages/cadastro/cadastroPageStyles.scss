@@ -9,3 +9,26 @@
     display: flex;
     flex-direction: column;
 }
+
+.cadastro .inputs {
+  display: flex;
+  justify-content: center;
+}
+
+.cadastro .inputs button {
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.cadastro a {
+  background: #efefef;
+  border: 2px solid black;
+  width: 182px;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  padding: 1px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
