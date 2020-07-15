@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
     minlength: 8,
     validate: [validator.default.isAlphanumeric, 'A password must only contain letters and numbers'],
-    select: false
+    select: false,
   },
 
   passwordConfirm: {
@@ -75,8 +75,8 @@ userSchema.pre('save', async function (next) {
   return next();
 });
 
-userSchema.methods.comparePasswords = async function (candidatePassword , password) {
-  console.log(candidatePassword, password)
+userSchema.methods.comparePasswords = async function (candidatePassword, password) {
+  console.log(candidatePassword, password);
   return await bcrypt.compare(candidatePassword, password);
 };
 
