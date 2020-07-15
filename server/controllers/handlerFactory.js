@@ -61,8 +61,9 @@ exports.createOne = (Model) =>
     });
   });
 
-exports.getOne = (Model, populateOptions) =>
+exports.getOne = (Model, populateOptions = null) =>
   catchAsync(async (req, resp, next) => {
+
     let query = Model.findById(req.params.id);
 
     if (populateOptions) query.populate(populateOptions);

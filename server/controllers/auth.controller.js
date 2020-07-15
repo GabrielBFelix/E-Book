@@ -59,7 +59,7 @@ exports.protect = catchAsync(async (req, resp, next) => {
 
   const currentUser = await User.findById(decoded.id);
 
-  if (!currentUser) {
+  if (!currentUser || !currentUser.active) {
     return next(new AppError('User do not exits', '404'));
   }
 
