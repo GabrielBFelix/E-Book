@@ -19,3 +19,4 @@ Node.js: https://www.youtube.com/playlist?list=PLJ_KhUnlXUPtbtLwaxxUxHqvcNQndmI4
 - [Termo de Abertura do Projeto](https://github.com/GabrielBFelix/E-Book/blob/master/docs/Termo_de_Abertura_de_Projeto.md)
 - [Análise de Ponto de Função](https://github.com/GabrielBFelix/E-Book/blob/master/docs/An%C3%A1lise%20de%20Pontos%20de%20Fun%C3%A7%C3%A3o%20-%20Sistema%20APF.md)
 - [Arquitetura Geral do Projeto](https://github.com/GabrielBFelix/E-Book/blob/master/docs/Arquitetura_Geral_do_Projeto.md)
+- [Relatório de Testes](https://github.com/GabrielBFelix/E-Book/blob/master/docs/Relatório_de_testes.md)
