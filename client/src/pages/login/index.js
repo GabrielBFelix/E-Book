@@ -18,7 +18,7 @@ function LoginPage() {
       <div className="inputs">
         <div>
           <p>Nome</p>
-          <input type="text" name ="email" value={email} 
+          <input type="email" name ="email" value={email} 
           onChange={(event)=>setEmail(event.target.value)}></input>
         </div>
 
