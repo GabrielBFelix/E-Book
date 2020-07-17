@@ -13,11 +13,7 @@ if (config.get('NODE_ENV') === 'development' || process.env.NODE_ENV === 'develo
 app.use(helmet());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, 'public')));
-app.use(
-  cors({
-    origin: 'localhost:3000/*',
-  })
-);
+app.use(cors());
 
 const authRoutes = require('./routes/auth.routes');
 const bookRoutes = require('./routes/book.routes');
