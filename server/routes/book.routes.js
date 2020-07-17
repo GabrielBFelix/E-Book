@@ -4,11 +4,21 @@ const router = express.Router({ mergeParams: true });
 
 const reviewRouter = require('./review.routes');
 
-const { createBook, getAllBooks, getBook, updateBook, deleteBook } = require('../controllers/book.controller');
+const {
+  createBook,
+  getAllBooks,
+  getBook,
+  updateBook,
+  deleteBook,
+  getTopFiveBooks,
+} = require('../controllers/book.controller');
 
 const { protect } = require('../controllers/auth.controller');
 
 router.route('/').get(getAllBooks).post(protect, createBook);
+
+router.route('/topFiveBooks').get( protect, getTopFiveBooks, getAllBooks);
+
 
 router.route('/:bookId').get(protect, getBook).patch(protect, updateBook).delete(protect, deleteBook);
 

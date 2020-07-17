@@ -3,6 +3,7 @@ const config = require('config');
 const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
+const path = require('path');
 
 const app = express();
 
@@ -11,6 +12,7 @@ if (config.get('NODE_ENV') === 'development' || process.env.NODE_ENV === 'develo
 }
 app.use(helmet());
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(
   cors({
     origin: 'localhost:3000/*',
@@ -24,7 +26,7 @@ const globalErrorHandler = require('./controllers/error.controller');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
-app.use('/api/users', userRoutes);
+app.use('/api/user', userRoutes);
 app.use(globalErrorHandler);
 
 module.exports = app;

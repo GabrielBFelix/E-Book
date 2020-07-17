@@ -52,3 +52,10 @@ exports.deleteBook = catchAsync(async (req, resp, next) => {
     data: null,
   });
 });
+
+exports.getTopFiveBooks = (req, resp, next) => {
+  req.query.limit = 5;
+  req.query.sort = '-ratingsAverage,createdAt';
+  req.query.fields = 'name,author,description';
+  return next();
+};
