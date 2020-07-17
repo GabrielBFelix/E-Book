@@ -52,9 +52,9 @@ const userSchema = new mongoose.Schema({
     {
       street: { type: String,  },
       number: { type: String, },
-      neighborhood: { type: String, ,
-      country: { type: String, ,
-      state: { type: String,  },
+      neighborhood: { type: String},
+      country: { type: String},
+      state: { type: String  }
     },
   ],
 
