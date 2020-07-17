@@ -50,11 +50,11 @@ const userSchema = new mongoose.Schema({
 
   address: [
     {
-      street: { type: String, required: [true, 'Please provide your street name'] },
-      number: { type: String, required: [true, 'Please provide the number of your house'] },
-      neighborhood: { type: String, required: [true, 'Please provide a neighborhood'] },
-      country: { type: String, required: [true, 'Please provide your country'] },
-      state: { type: String, required: [true, 'Please provide your state name'] },
+      street: { type: String,  },
+      number: { type: String, },
+      neighborhood: { type: String, ,
+      country: { type: String, ,
+      state: { type: String,  },
     },
   ],
 
