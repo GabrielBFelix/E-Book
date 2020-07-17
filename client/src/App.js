@@ -1,11 +1,10 @@
-import React from 'react';
-//import LoginPage from './pages/login/LoginPage';
-import CadastroPage from './pages/cadastro/CadastroPage';
+import React from "react";
+import Routes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <CadastroPage />
+      <Routes />
     </div>
   );
 }

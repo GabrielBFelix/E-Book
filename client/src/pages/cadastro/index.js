@@ -43,6 +43,7 @@ function CadastroPage() {
         </div>
         <button onClick={handleSubmit}>Cadastrar</button>
       </div>
+      <a href="/">Cancelar</a>
     </div>
   );
 }

@@ -8,7 +8,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   
   const handleSubmit= async() =>{
-    const result = await axios.post('http://localhost:3000/api/auth/login',{email, password});
+    const result = await axios.post('http://localhost:3001/api/auth/login',{email, password});
     console.log(result);
   }
 
@@ -29,6 +29,7 @@ function LoginPage() {
         </div>
         <button onClick={handleSubmit}>Login</button>
       </div>
+      <a href="/cadastro">Cliente novo? Cadastre-se</a>
     </div>
   );
 }
