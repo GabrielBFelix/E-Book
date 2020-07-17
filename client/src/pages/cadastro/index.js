@@ -10,7 +10,7 @@ function CadastroPage() {
   const [password1, setPassword1] = useState("");
 
   const handleSubmit= async() =>{
-  const result = await axios.post('http://localhost:3000/api/auth/login',{nome, email, password0, password1});
+  const result = await axios.post('http://localhost:3001/api/auth/login',{nome, email, password0, password1});
   console.log(result);
   }
 
@@ -26,7 +26,7 @@ function CadastroPage() {
 
         <div>
           <p>Email</p>
-          <input type="text" name="email" value={email} 
+          <input type="email" name="email" value={email} 
           onChange={(event)=>setEmail(event.target.value)}></input>
         </div>
 
