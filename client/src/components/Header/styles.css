@@ -1,0 +1,9 @@
+.main-header {
+  height: 50px;
+  border: 1px solid #ddd;
+}
+
+.main-header .content {
+  max-width: 1200px;
+  margin: auto;
+}
