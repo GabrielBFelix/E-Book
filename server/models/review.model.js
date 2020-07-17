@@ -3,34 +3,42 @@ const validator = require('validator');
 
 const Book = require('./book.model');
 
-const reviewSchema = new mongoose.Schema({
-  review: {
-    type: String,
-    required: true,
-  },
+const reviewSchema = new mongoose.Schema(
+  {
+    review: {
+      type: String,
+      required: true,
+    },
 
-  rating: {
-    type: Number,
-    default: 5,
-  },
+    rating: {
+      type: Number,
+      min: 1,
+      max: 10,
+      default: 5,
+    },
 
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
 
-  user: {
-    type: mongoose.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
+    user: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User',
+      required: [true, 'A review must belong to a user'],
+    },
 
-  book: {
-    type: mongoose.Types.ObjectId,
-    ref: 'Book',
-    required: true,
+    book: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Book',
+      required: [true, 'A review must belong to a book'],
+    },
   },
-});
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
 
 reviewSchema.index({ user: 1, book: 1 });
 

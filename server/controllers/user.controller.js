@@ -70,7 +70,7 @@ exports.updateMe = catchAsync(async (req, resp, next) => {
 exports.deleteMe = catchAsync(async (req, resp, next) => {
   const { id } = req.user;
 
-  const user = await User.findByIdAndUpdate(id, { active: false });
+  await User.findByIdAndUpdate(id, { active: false });
 
   return resp.status(204).json({
     status: 'success',
@@ -78,10 +78,50 @@ exports.deleteMe = catchAsync(async (req, resp, next) => {
   });
 });
 
+exports.getWishList = catchAsync(async (req, resp, next) => {
+  const { id } = req.user;
+
+  const user = await User.findById(id);
+
+  console.log(user)
+
+  return resp.status(200).json({ status : 'sucess', data: user.wishList });
+});
+
+exports.addItemToWishList = catchAsync(async (req, resp, next) => {
+  const { id } = req.user;
+
+  const user = await User.findById(id);
+
+  user.wishList = [...user.wishList, req.body.item];
+
+  const newUserWithUpdatedWishList = await user.save({ validateBeforeSave: false });
+
+  return resp.status(201).json({
+    status : 'sucess',
+    data:  newUserWithUpdatedWishList.wishList
+  })
+});
+
+exports.deleteItemFromWishList = catchAsync(async (req, resp, next) => {
+  const { id } = req.user;
+
+  const user = await User.findByIdAndUpdate(id);
+
+  user.wishList = user.wishList.filter((item) => item.id !== req.body.item);
+
+  const newUserWithUpdatedWishList = await user.save({ validateBeforeSave: false });
+
+  return resp.status(200).json({
+    status : 'sucess',
+    data:  newUserWithUpdatedWishList.wishList
+  })
+});
+
 exports.getMe = (req, resp, next) => {
   req.params.id = req.user.id;
 
-  return next()
+  return next();
 };
 
 exports.getUser = handlerFactory.getOne(User);

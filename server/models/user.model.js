@@ -41,6 +41,13 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 
+  wishList : [
+    {
+      type : mongoose.Types.ObjectId,
+      ref : 'Book',
+    }
+  ],
+
   address: [
     {
       street: { type: String, required: [true, 'Please provide your street name'] },

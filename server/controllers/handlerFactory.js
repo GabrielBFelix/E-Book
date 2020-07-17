@@ -85,7 +85,8 @@ exports.getAll = (Model) =>
   catchAsync(async (req, resp, next) => {
     let filter = {};
 
-    if (req.params.book) filter = { book: req.params.book };
+    if (req.params.book) filter = {...filter, book: req.params.book };
+    if (req.params.userId) filter = {...filter, seller : req.params.userId}
 
     let apiFeatures = new ApiFeatures(Model.find(filter), req.query).filter().sort().limitFields().paginate();
 
