@@ -1,5 +1,7 @@
 const express = require('express');
 
+const bookRoutes = require('./book.routes');
+
 const router = express.Router();
 
 const {
@@ -16,5 +18,7 @@ const { protect } = require('../controllers/auth.controller');
 router.route('/updateMe').post(protect, uploadUserPhoto, resizeUserPhoto, updateMe);
 router.route('/deleteMe').post(protect, deleteMe);
 router.route('/getMe').get(protect, getMe, getUser);
+
+router.use('/:userId/books', protect, bookRoutes);
 
 module.exports = router;

@@ -1,29 +1,21 @@
 const express = require('express');
 const config = require('config');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 
 const app = express();
 
-const DB = config.get('DB.URI').replace('<PASSWORD>', config.get('DB.PASSWORD'));
-
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log(`MongoDB connected`));
-
 if (config.get('NODE_ENV') === 'development' || process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-app.use(helmet())
+app.use(helmet());
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: 'localhost:3000/*',
+  })
+);
 
 const authRoutes = require('./routes/auth.routes');
 const bookRoutes = require('./routes/book.routes');
@@ -32,9 +24,7 @@ const globalErrorHandler = require('./controllers/error.controller');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
-app.use('/api/user', userRoutes)
+app.use('/api/users', userRoutes);
 app.use(globalErrorHandler);
 
-const PORT = process.env.PORT || config.get('PORT') || 3000;
-
-app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+module.exports = app;

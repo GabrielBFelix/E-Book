@@ -70,7 +70,7 @@ exports.updateMe = catchAsync(async (req, resp, next) => {
 exports.deleteMe = catchAsync(async (req, resp, next) => {
   const { id } = req.user;
 
-  const user = await User.findByIdAndUpdate(id, { active: false });
+  await User.findByIdAndUpdate(id, { active: false });
 
   return resp.status(204).json({
     status: 'success',

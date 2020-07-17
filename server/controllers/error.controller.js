@@ -31,7 +31,7 @@ module.exports = (err, req, resp, next) => {
   err.statusCode = err.statusCode || 500;
   err.message = err.message || 'Something wrong happened';
 
-  if (err.code === 11000) err = handleDuplicateKeyError(err);
+  // if (err.code === 11000) err = handleDuplicateKeyError(err);
   if (err.name === 'TokenExpiredError') err = handleTokenExpiredError();
   if (err.name === 'JsonWebTokenError') err = handleJWTError();
   if (err.kind === 'ObjectId') err = handleCastError(err);
