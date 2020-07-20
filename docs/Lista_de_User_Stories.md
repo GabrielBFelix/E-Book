@@ -119,4 +119,17 @@ Tamanho Funcional: 8<br>
 TA07.01: Checar se os dados de um relatório foram todos gerados corretamente.<br>
 <br>
 
+### User Story US08 - Login
+
+Descrição: O sistema deve aceitar o login e a senha do usuário para loga-lo em sua conta.<br>
+Requisitos envolvidos: RF28<br>
+Prioridade: Essencial<br>
+Estimativa: 1h<br>
+Tempo Gasto (real): <br>
+Tamanho Funcional: 8<br>
+
+#### Testes de Aceitação (TA)
+TA01.01: Tentar logar com um usuário cadastrado, e observar se o sistema aceita o login.<br>
+TA01.02: Tentar logar com um email não cadastrado, e observar se o sistema nega o login.<br>
+
 ## Referências
