@@ -3,6 +3,16 @@ import api from "../../services/api";
 import "./styles.css";
 
 export default class HomePage extends Component {
+  componentDidMount() {
+    this.loadProducts();
+  }
+
+  loadProducts = async () => {
+    // Testando api
+    const response = await api.get("/books");
+    console.log(response.data.data.docs);
+  };
+
   render() {
     return (
       <div className="books-list">
