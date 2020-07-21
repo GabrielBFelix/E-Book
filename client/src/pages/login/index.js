@@ -6,12 +6,16 @@ function LoginPage() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const saved_token = localStorage.getItem('token');
   
   const handleSubmit= async() =>{
     const result = await axios.post('http://localhost:3001/api/auth/login',{email, password});
     console.log(result);
+    saveToStorage(result.data.data.token);
   }
 
+  const saveToStorage = (token) => localStorage.setItem('token', token);
+  
   return (
     <div className="login">
       <p>Tela Login</p>
