@@ -25,7 +25,9 @@ export default class HomePage extends Component {
         {this.state.books.map((book) => (
           <article key={book._id}>
             <strong>{book.name}</strong>
-            <p>{book.description}</p>
+            <p align="justify">{book.description}</p>
+            <p>Autor: {book.author}</p>
+            <p>Genero: {book.genres}</p>
           </article>
         ))}
       </div>
