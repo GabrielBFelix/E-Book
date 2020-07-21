@@ -6,4 +6,16 @@
 .main-header .content {
   max-width: 1200px;
   margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header .content .buttons a {
+  text-decoration: none;
+  color: #000;
+  margin-left: 35px;
+}
+.main-header .content .buttons a:hover {
+  opacity: 60%;
 }
