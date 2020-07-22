@@ -46,6 +46,14 @@ exports.resizeUserPhoto = catchAsync(async (req, resp, next) => {
 
   return next();
 });
+
+
+exports.getMe = (req, resp, next) => {
+  req.params.id = req.user.id;
+
+  return next();
+};
+
 exports.updateMe = catchAsync(async (req, resp, next) => {
   const { id } = req.user;
 
@@ -83,8 +91,6 @@ exports.getWishList = catchAsync(async (req, resp, next) => {
 
   const user = await User.findById(id);
 
-  console.log(user)
-
   return resp.status(200).json({ status : 'sucess', data: user.wishList });
 });
 
@@ -117,11 +123,5 @@ exports.deleteItemFromWishList = catchAsync(async (req, resp, next) => {
     data:  newUserWithUpdatedWishList.wishList
   })
 });
-
-exports.getMe = (req, resp, next) => {
-  req.params.id = req.user.id;
-
-  return next();
-};
 
 exports.getUser = handlerFactory.getOne(User);

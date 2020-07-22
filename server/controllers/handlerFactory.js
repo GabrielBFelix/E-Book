@@ -47,10 +47,7 @@ exports.updateOne = (Model) =>
 exports.createOne = (Model) =>
   catchAsync(async (req, resp, next) => {
     let fields = excludeFields(req.body, 'role');
-    if (fields.genres) {
-      fields.genres = fields.genres.split(',');
-    }
-
+    
     const newDoc = await Model.create(fields);
 
     return resp.status(201).json({

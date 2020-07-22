@@ -18,11 +18,17 @@ app.use(cors());
 const authRoutes = require('./routes/auth.routes');
 const bookRoutes = require('./routes/book.routes');
 const userRoutes = require('./routes/user.routes');
+const reviewRoutes = require('./routes/review.routes')
+const bookingRoutes = require('./routes/booking.routes');
 const globalErrorHandler = require('./controllers/error.controller');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/reviews' , reviewRoutes);
+app.use('/api/booking', bookingRoutes)
+
+
 app.use(globalErrorHandler);
 
 module.exports = app;

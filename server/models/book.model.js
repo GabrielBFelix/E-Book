@@ -20,12 +20,15 @@ const bookSchema = new mongoose.Schema(
       required: [true, 'Please provide a description'],
     },
 
-    author: [
-      {
-        type: String,
-        required: [true, 'Please provide the author name'],
+    author: {
+      type: [String],
+      validate: {
+        validator: function (authorArray) {
+          return authorArray.length > 0;
+        },
+        message: 'A book must have at least one author',
       },
-    ],
+    },
 
     price: {
       type: Number,
@@ -56,13 +59,16 @@ const bookSchema = new mongoose.Schema(
       default: 5,
     },
 
-    genres: [
-      {
-        type: String,
-        required: true,
-        trim: true,
+    genres: {
+      type: [String],
+      validate: {
+        validator: function (genresArray) {
+          return genresArray.length > 0;
+        },
+        message: 'A book must have at least one genre',
       },
-    ],
+      trim: true,
+    },
 
     seller: {
       type: mongoose.Types.ObjectId,

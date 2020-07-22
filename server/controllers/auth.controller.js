@@ -8,10 +8,10 @@ const User = require('../models/user.model');
 const AppError = require('../utils/AppError');
 const catchAsync = require('../utils/catchAsync');
 
-const createAndSendToken = (id, resp) => {
+const createAndSendToken = (id, statusCode, resp) => {
   const token = jwt.sign({ id }, config.get('JWT.SECRET_KEY'), { expiresIn: config.get('JWT.EXPIRES_IN') });
 
-  return resp.status(200).json({
+  return resp.status(statusCode).json({
     status: 'success',
     data: {
       token,
@@ -20,12 +20,11 @@ const createAndSendToken = (id, resp) => {
 };
 
 exports.signUp = catchAsync(async (req, resp, next) => {
-
   const { email, password, passwordConfirm, username } = req.body;
 
   const newUser = await User.create({ email, password, passwordConfirm, username });
 
-  return createAndSendToken(newUser.id, resp);
+  return createAndSendToken(newUser.id, 201, resp);
 });
 
 exports.login = catchAsync(async (req, resp, next) => {
@@ -35,13 +34,13 @@ exports.login = catchAsync(async (req, resp, next) => {
     return next(new AppError('Please provide an valid email and password', 400));
   }
 
-  const user = await User.findOne({ email }).select('+password');
+  const user = await User.findOne({ email }).select('+password +active');
 
   if (!user || !user.active || !(await user.comparePasswords(password, user.password))) {
     return next(new AppError('Incorrect email or password', 400));
   }
 
-  return createAndSendToken(user.id, resp);
+  return createAndSendToken(user.id, 200, resp);
 });
 
 exports.protect = catchAsync(async (req, resp, next) => {
@@ -55,14 +54,13 @@ exports.protect = catchAsync(async (req, resp, next) => {
 
   const decoded = await promisify(jwt.verify)(token, config.get('JWT.SECRET_KEY'));
 
-  const currentUser = await User.findById(decoded.id);
+  const currentUser = await User.findById(decoded.id).select('+active');
 
   if (!currentUser || !currentUser.active) {
     return next(new AppError('User do not exits', '404'));
   }
 
   req.user = currentUser;
-  resp.locals.user = currentUser;
   next();
 });
 
