@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import api from "../../services/api";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 export default class HomePage extends Component {
   state = {
@@ -28,6 +29,7 @@ export default class HomePage extends Component {
             <p align="justify">{book.description}</p>
             <p>Autor: {book.author}</p>
             <p>Genero: {book.genres}</p>
+            <Link to={`/${book._id}`}>Acessar</Link>
           </article>
         ))}
       </div>
