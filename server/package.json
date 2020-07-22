@@ -23,6 +23,7 @@
     "nodemailer": "^6.4.10",
     "sharp": "^0.25.4",
     "slugify": "^1.4.4",
+    "stripe": "^8.76.0",
     "validator": "^13.1.1"
   },
   "devDependencies": {

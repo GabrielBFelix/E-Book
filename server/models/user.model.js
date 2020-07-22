@@ -61,6 +61,7 @@ const userSchema = new mongoose.Schema({
   active: {
     type: Boolean,
     default: true,
+    select : false
   },
 
   roles: {
@@ -68,6 +69,8 @@ const userSchema = new mongoose.Schema({
     enum: ['user', 'seller', 'admin'],
     default: 'user',
   },
+
+  photo : String
 });
 
 userSchema.pre('save', async function (next) {

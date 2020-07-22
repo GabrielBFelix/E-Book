@@ -1,9 +1,10 @@
 const Book = require('../models/book.model');
-const factory = require('./handlerFactory');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
+const ApiFeatures = require('../utils/APIFeatures');
 
-const filterObj = (obj, ...allowedFields) => {
+
+const filterObj = (obj, allowedFields) => {
   const newObj = {};
 
   Object.keys(obj).forEach((key) => {
@@ -11,27 +12,78 @@ const filterObj = (obj, ...allowedFields) => {
       newObj[key] = obj[key];
     }
   });
-
+  console.log(newObj)
   return newObj;
 };
 
-exports.createBook = factory.createOne(Book);
+exports.createBook = catchAsync(async (req, resp, next) => {
+  const allowedFields = ['name', 'publisher', 'description', 'author', 'price', 'images', 'quantity', 'genres'];
 
-exports.getAllBooks = factory.getAll(Book);
+  const fields = filterObj(req.body, allowedFields);
+  fields.seller = req.user.id;
 
-exports.getBook = factory.getOne(Book);
+  const newDoc = await Book.create(fields);
+
+  return resp.status(201).json({
+    status: 'success',
+    data: {
+      newDoc,
+    },
+  });
+});
+
+exports.getAllBooks = catchAsync(async (req, resp, next) => {
+  let filter = {};
+
+  if (req.params.userId) filter.seller = req.params.userId;
+
+  let apiFeatures = new ApiFeatures(Book.find(filter), req.query).filter().sort().limitFields().paginate();
+
+  const docs = await apiFeatures.query;
+
+  return resp.status(200).json({
+    status: 'succed',
+    results: docs.length,
+    data: {
+      docs,
+    },
+  });
+});
+
+exports.getBook = catchAsync(async (req, resp, next) => {
+  const filters = { _id: req.params.bookId };
+
+  if (req.params.userId) filters.seller = req.params.userId;
+
+  let query = Book.find(filters );
+
+  const doc = await query;
+
+  if (!doc) {
+    return next(new AppError('Doc not found', '404'));
+  }
+
+  return resp.status(200).json({
+    status: 'success',
+    data: {
+      doc,
+    },
+  });
+});
 
 exports.updateBook = catchAsync(async (req, resp, next) => {
   const { bookId } = req.params;
   const userId = req.user.id;
 
-  const filteredBody = filterObj(req.body, 'quantity', 'genres', 'price', 'description');
+  const allowedFieds = ['quantity', 'genres', 'price', 'description']
 
-  const query = Book.updateOne({ _id: bookId, seller: userId }, filteredBody);
+  const filteredBody = filterObj(req.body, allowedFieds);
 
-  const book = await query;
+  // const book = await Book.findOne({ _id: bookId, seller: userId });
 
-  if (!book.nModified) {
+  const book = await Book.findOneAndUpdate({ _id: bookId, seller: userId }, filteredBody, { new: true });
+
+  if (!book) {
     return next(new AppError(`Book doesn't exist or doesn't belong to this user`, 404));
   }
 
