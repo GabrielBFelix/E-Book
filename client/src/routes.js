@@ -6,6 +6,7 @@ import LoginPage from "./pages/login/";
 import CadastroPage from "./pages/cadastro";
 import Livro from "./pages/cadastro_livro";
 import HomePage from "./pages/landing_page";
+import DetailBook from "./pages/detail_book";
 
 const Routes = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const Routes = () => (
       <Route exact path="/login" component={LoginPage} />
       <Route path="/cadastro" component={CadastroPage} />
       <Route path="/cadastro_livro" component={Livro} />
+      <Route path="/:id" component={DetailBook} />
     </Switch>
   </BrowserRouter>
 );
