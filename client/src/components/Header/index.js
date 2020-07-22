@@ -1,23 +1,27 @@
-import React from "react";
+import React, { useContext } from 'react';
 
-import "./styles.css";
+import { Button } from 'reactstrap';
+
+import { Link } from 'react-router-dom';
+
+import { UserContext } from '../../contexts/UserContext';
+
+import './styles.css';
 
 const Header = () => {
-  const removeStorage = () => localStorage.removeItem('token');
-  ;
-
-  const buttonLink = () => {
-
-  }
+  const userContext = useContext(UserContext);
 
   return (
     <div className="main-header">
       <div className="content">
-        <h2>E-Book</h2>
-        <div className="buttons">
-          <a href="/login">Entrar</a>
-          <a href="/" onClick={removeStorage}>Sair</a>
-        </div>
+        <Link to="/" style={{ color: '#25acd5', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <h2 style={{margin: 0, padding : 0}}>E-Book</h2>
+        </Link>
+        {userContext.user ? (
+          <Button onClick={(event) => userContext.saveUser(null)}>Sair</Button>
+        ) : (
+          <Link to="/login">Entrar</Link>
+        )}
       </div>
     </div>
   );

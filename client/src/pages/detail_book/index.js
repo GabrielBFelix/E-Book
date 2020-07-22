@@ -1,32 +1,45 @@
-import React, { useState, useEffect } from "react";
-import api from "../../services/api";
+import React, { useState, useEffect, useContext } from 'react';
+
+import Book from '../../components/Book';
+
+import { UserContext } from '../../contexts/UserContext';
+
+import { useParams } from 'react-router-dom';
+import { Spinner, Row } from 'reactstrap';
+
+import api from '../../services/api';
 
 const DetailBook = (props) => {
   const [book, setBook] = useState({});
-  const saved_token = localStorage.getItem("token");
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const userContext = useContext(UserContext);
+  const params = useParams();
   useEffect(() => {
     async function fetchData() {
-      const { id } = props.match.params;
-      const response = await api.get(`/books/${id}`, {
-        headers: { authorization: `Bearer ${saved_token}` },
-      });
-      console.log(response);
+      try {
+        const { data } =  await api.get(`/books/${params.id}`, {
+          headers: { authorization: `Bearer ${userContext.user}` },
+        });
+        setBook(data.data.doc[0]);
+        setIsLoading(false);
+      } catch (error) {
+        setIsLoading(false);
+        setError(true);
+        console.log(error);
+      }
     }
     fetchData();
-  });
+  }, []);
 
-  return (
-    <div className="container">
-      <h1>Book</h1>
-      <div className="book">
-        <div className="book-detail"></div>
-        <div className="payment"></div>
-      </div>
-      <div className="coments">
-        <section></section>
-      </div>
-    </div>
+  return isLoading ? (
+    <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
+      <Spinner></Spinner>
+    </Row>
+  ) : error ? (
+    <p>Você não tem autorização</p>
+  ) : (
+    <Book book={book} />
   );
 };
 

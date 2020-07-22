@@ -1,45 +1,105 @@
-import React, {useState} from 'react';
-import './loginPageStyles.scss';
-import axios from 'axios';
+import React, { useState, useContext } from 'react';
+import { FormGroup, Input, Label, Button, Form, Container, Row, Col } from 'reactstrap';
+import { useForm, Controller } from 'react-hook-form';
+import { ErrorMessage } from '@hookform/error-message';
+import { Link, useHistory } from 'react-router-dom';
 
+import { UserContext } from '../../contexts/UserContext';
+
+import api from '../../services/api';
 function LoginPage() {
-  
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const saved_token = localStorage.getItem('token');
-  
-  const handleSubmit= async() =>{
-    const result = await axios.post('http://localhost:3001/api/auth/login',{email, password})
-    .then(result => {
-      console.log(result);
-      saveToStorage(result.data.data.token);
-    })
-    .catch(error =>{
-      console.log(error)
-    })
-  }
+  const { register, handleSubmit, errors, control, setError, clearErrors } = useForm({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
 
-  const saveToStorage = (token) => localStorage.setItem('token', token);
-  
+  const context = useContext(UserContext);
+  const history = useHistory();
+
+  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await api.post('/auth/login', data);
+      context.saveUser(response.data.data.token);
+      clearErrors(['email', 'password']);
+      history.push('/');
+    } catch (error) {
+      setError('email', { type: 'manual', message: 'Confira se o email está correto' });
+      setError('password', { type: 'manual', message: 'Confira se a senha está correta' });
+    }
+  };
+
+  // const saveToStorage = (token) => localStorage.setItem('token', token);
+
   return (
-    <div className="login">
-      <p>Tela Login</p>
-      <div className="inputs">
-        <div>
-          <p>Nome</p>
-          <input type="email" name ="email" value={email} 
-          onChange={(event)=>setEmail(event.target.value)}></input>
-        </div>
+    <Container fluid={true} style={{ height: '90vh' }}>
+      <Form
+        onSubmit={handleSubmit(onSubmit)}
+        style={{ height: '80%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+      >
+        <FormGroup style={{ width: '75%', margin: ' 0 auto' }}>
+          <Label for="email">Email</Label>
+          <Controller
+            as={Input}
+            name="email"
+            control={control}
+            rules={{ required: 'This field is required', pattern: { value: emailRegex, message: 'Only valid emails' } }}
+          ></Controller>
+          <ErrorMessage errors={errors} name="email">
+            {({ messages }) =>
+              messages &&
+              Object.entries(messages).map(([type, message]) => (
+                <p className="text-danger" key={type}>
+                  {message}
+                </p>
+              ))
+            }
+          </ErrorMessage>
+        </FormGroup>
 
-        <div>
-          <p>Senha</p>
-          <input type="password" name="password" value={password} 
-          onChange={(event)=>setPassword(event.target.value)}></input>
-        </div>
-        <button onClick={handleSubmit}>Login</button>
-      </div>
-      <a href="/cadastro">Cliente novo? Cadastre-se</a>
-    </div>
+        <FormGroup style={{ width: '75%', margin: '5vh auto' }}>
+          <Label for="password">Password</Label>
+          <Controller
+            control={control}
+            as={<Input type="password" />}
+            name="password"
+            rules={{ required: 'This field is required', minLength: { value: 8, message: '8+ characteres' } }}
+          ></Controller>
+          <ErrorMessage errors={errors} name="password">
+            {({ messages }) =>
+              messages &&
+              Object.entries(messages).map(([type, message]) => (
+                <p className="text-danger" key={type}>
+                  {message}
+                </p>
+              ))
+            }
+          </ErrorMessage>
+        </FormGroup>
+        <Row style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+          <Button color="primary" type="submit" style={{ width: '25%' }}>
+            Login
+          </Button>
+          <Link
+            to="/cadastro"
+            style={{
+              textDecoration: 'none',
+              color: '#000',
+              width: '25%',
+              backgroundColor: '#AEAF49',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            Cliente novo? Cadastre-se
+          </Link>
+        </Row>
+      </Form>
+    </Container>
   );
 }
 
