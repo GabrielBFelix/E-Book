@@ -9,9 +9,14 @@ function LoginPage() {
   const saved_token = localStorage.getItem('token');
   
   const handleSubmit= async() =>{
-    const result = await axios.post('http://localhost:3001/api/auth/login',{email, password});
-    console.log(result);
-    saveToStorage(result.data.data.token);
+    const result = await axios.post('http://localhost:3001/api/auth/login',{email, password})
+    .then(result => {
+      console.log(result);
+      saveToStorage(result.data.data.token);
+    })
+    .catch(error =>{
+      console.log(error)
+    })
   }
 
   const saveToStorage = (token) => localStorage.setItem('token', token);
