@@ -6,12 +6,12 @@ function CadastroPage() {
 
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [password0, setPassword0] = useState("");
-  const [password1, setPassword1] = useState("");
+  const [password, setPassword] = useState("");
+  const [PasswordConfirm, setPasswordConfirm] = useState("");
 
   const handleSubmit= async() =>{
-  const result = await axios.post('http://localhost:3001/api/auth/login',{nome, email, password0, password1});
-  console.log(result);
+  const result = await axios.post('http://localhost:3001/api/auth/',{nome, email, password, PasswordConfirm});
+    console.log(result);
   }
 
   return (
@@ -32,14 +32,14 @@ function CadastroPage() {
 
         <div>
             <p>Senha</p>
-            <input type="password" name="password0" value={password0}
-            onChange={(event)=>setPassword0(event.target.value)}></input>
+            <input type="password" name="password" value={password}
+            onChange={(event)=>setPassword(event.target.value)}></input>
         </div>
 
         <div>
             <p>Confirmar Senha</p>
-            <input type="password" name="password1" value={password1}
-            onChange={(event)=>setPassword1(event.target.value)}></input>
+            <input type="password" name="passwordConfirm" value={PasswordConfirm}
+            onChange={(event)=>setPasswordConfirm(event.target.value)}></input>
         </div>
         <button onClick={handleSubmit}>Cadastrar</button>
       </div>
