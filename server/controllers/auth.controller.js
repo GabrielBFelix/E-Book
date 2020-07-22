@@ -51,7 +51,7 @@ exports.protect = catchAsync(async (req, resp, next) => {
   } else {
     return next(new AppError('Please provide a valid token', '400'));
   }
-
+  
   const decoded = await promisify(jwt.verify)(token, config.get('JWT.SECRET_KEY'));
 
   const currentUser = await User.findById(decoded.id).select('+active');

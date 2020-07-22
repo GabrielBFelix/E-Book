@@ -55,7 +55,9 @@ exports.getBook = catchAsync(async (req, resp, next) => {
 
   if (req.params.userId) filters.seller = req.params.userId;
 
-  let query = Book.find(filters );
+  console.log(filters)
+
+  let query = Book.find(filters);
 
   const doc = await query;
 

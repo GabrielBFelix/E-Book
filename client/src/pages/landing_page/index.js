@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import api from "../../services/api";
-import "./styles.css";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import api from '../../services/api';
+import './styles.css';
+
+import Book from '../../components/Book';
 
 export default class HomePage extends Component {
   state = {
@@ -14,7 +15,7 @@ export default class HomePage extends Component {
 
   loadProducts = async () => {
     // Testando api
-    const response = await api.get("/books");
+    const response = await api.get('/books');
     console.log(response.data.data.docs);
 
     this.setState({ books: response.data.data.docs });
@@ -24,13 +25,7 @@ export default class HomePage extends Component {
     return (
       <div className="books-list">
         {this.state.books.map((book) => (
-          <article key={book._id}>
-            <strong>{book.name}</strong>
-            <p align="justify">{book.description}</p>
-            <p>Autor: {book.author}</p>
-            <p>Genero: {book.genres}</p>
-            <Link to={`/${book._id}`}>Acessar</Link>
-          </article>
+          <Book book={book} />
         ))}
       </div>
     );
