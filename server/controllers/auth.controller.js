@@ -20,9 +20,9 @@ const createAndSendToken = (id, statusCode, resp) => {
 };
 
 exports.signUp = catchAsync(async (req, resp, next) => {
-  const { email, password, passwordConfirm, username } = req.body;
+  const { email, password, passwordConfirm, username, address } = req.body;
 
-  const newUser = await User.create({ email, password, passwordConfirm, username });
+  const newUser = await User.create({ email, password, passwordConfirm, username, address });
 
   return createAndSendToken(newUser.id, 201, resp);
 });
