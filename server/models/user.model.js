@@ -41,27 +41,25 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
 
-  wishList : [
+  wishList: [
     {
-      type : mongoose.Types.ObjectId,
-      ref : 'Book',
-    }
-  ],
-
-  address: [
-    {
-      street: { type: String,  },
-      number: { type: String, },
-      neighborhood: { type: String},
-      country: { type: String},
-      state: { type: String  }
+      type: mongoose.Types.ObjectId,
+      ref: 'Book',
     },
   ],
+
+  address: {
+    street: { type: String },
+    number: { type: String },
+    neighborhood: { type: String },
+    country: { type: String },
+    state: { type: String },
+  },
 
   active: {
     type: Boolean,
     default: true,
-    select : false
+    select: false,
   },
 
   roles: {
@@ -70,7 +68,7 @@ const userSchema = new mongoose.Schema({
     default: 'user',
   },
 
-  photo : String
+  photo: String,
 });
 
 userSchema.pre('save', async function (next) {
