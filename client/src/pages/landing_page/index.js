@@ -28,7 +28,7 @@ export default class HomePage extends Component {
     return (
       <div className="books-list">
         {this.state.books.map((book) => (
-          <div>
+          <div key={book._id}>
             <Book book={book}>
               <Link to={`/books/${book._id}`}> Ver detalhes</Link>
             </Book>
