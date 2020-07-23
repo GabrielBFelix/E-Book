@@ -90,6 +90,6 @@ userSchema.methods.comparePasswords = async function (candidatePassword, passwor
   return await bcrypt.compare(candidatePassword, password);
 };
 
-const User = mongoose.model('Users', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;
