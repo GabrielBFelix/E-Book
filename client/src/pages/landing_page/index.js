@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import { Link } from 'react-router-dom';
+
 import api from '../../services/api';
 import './styles.css';
 
@@ -25,7 +28,11 @@ export default class HomePage extends Component {
     return (
       <div className="books-list">
         {this.state.books.map((book) => (
-          <Book book={book} />
+          <div>
+            <Book book={book}>
+              <Link to={`/books/${book._id}`}> Ver detalhes</Link>
+            </Book>
+          </div>
         ))}
       </div>
     );

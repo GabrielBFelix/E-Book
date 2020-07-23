@@ -14,11 +14,14 @@ const Header = () => {
   return (
     <div className="main-header">
       <div className="content">
-        <Link to="/" style={{ color: '#25acd5', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-          <h2 style={{margin: 0, padding : 0}}>E-Book</h2>
+        <Link to="/" style={{ color: '#25acd5', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <h2 style={{ margin: 0, padding: 0 }}>E-Book</h2>
         </Link>
         {userContext.user ? (
-          <Button onClick={(event) => userContext.saveUser(null)}>Sair</Button>
+          <>
+            <Link style={{backgroundColor: "#000" , color: "#fff" , padding: '10px' , borderRadius: '10px'}} to="/bookings">Bookings</Link>
+            <Button onClick={(event) => userContext.saveUser(null)}>Sair</Button>
+          </>
         ) : (
           <Link to="/login">Entrar</Link>
         )}

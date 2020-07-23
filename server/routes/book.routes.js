@@ -19,7 +19,7 @@ router.route('/').get(getAllBooks).post(protect, createBook);
 
 router.route('/topFiveBooks').get(protect, getTopFiveBooks, getAllBooks);
 
-router.route('/:bookId').get(protect, getBook).patch(protect, updateBook).delete(protect, deleteBook);
+router.route('/:bookId').get(getBook).patch(protect, updateBook).delete(protect, deleteBook);
 
 router.use('/:book/reviews', reviewRouter);
 

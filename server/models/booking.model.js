@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  books: [
-    {
-      type: mongoose.Types.ObjectId,
-      ref: 'Book',
-      required: [true, 'A booking must have one or more books'],
-    },
-  ],
+  book: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Book',
+    required: [true, 'A booking must have one or more books'],
+  },
 
   user: {
     type: mongoose.Types.ObjectId,
-    ref: 'Book',
+    ref: 'User',
     required: [true, 'A booking must belong to a user'],
   },
 
