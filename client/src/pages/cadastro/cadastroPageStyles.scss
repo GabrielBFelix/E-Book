@@ -16,11 +16,14 @@
   position: absolute;
 }
 
-.book-form h1 {
+.cadastro-form h1 {
+  margin-bottom: 25px;
+}
+.cadastro-form h2 {
   margin-bottom: 25px;
 }
 
-.book-form .buttons {
+.cadastro-form .buttons {
   display: flex;
   justify-content: space-between;
 }
