@@ -20,6 +20,7 @@ const Header = () => {
         {userContext.user ? (
           <>
             <Link style={{backgroundColor: "#000" , color: "#fff" , padding: '10px' , borderRadius: '10px'}} to="/bookings">Bookings</Link>
+            <Link to="/user">Meu perfil</Link>
             <Button onClick={(event) => userContext.saveUser(null)}>Sair</Button>
           </>
         ) : (
