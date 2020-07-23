@@ -29,7 +29,7 @@ function App() {
           path="/login"
           render={(...props) => (userContext.user ? <Redirect to="/" /> : <LoginPage {...props}></LoginPage>)}
         />
-        <Route path="/cadastro" component={CadastroPage} />
+        <Route path="/cadastro" render={(...props) => (userContext.user ? <Redirect to="/" /> : <CadastroPage {...props}></CadastroPage>)} />
         <Route
           path="/cadastro_livro"
           render={(...props) => (userContext.user ? <Livro {...props} /> : <Redirect to="/" />)}
