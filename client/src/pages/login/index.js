@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Form, Container, Row } from 'reactstrap';
-import { useForm, Controller } from 'react-hook-form';
-import { ErrorMessage } from '@hookform/error-message';
+import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext';
@@ -53,7 +52,7 @@ function LoginPage() {
           defaultValue=""
           control={control}
           errors={errors}
-          rules={{ required: 'This field is required' }}
+          rules={{ required: 'This field is required'  , pattern : emailRegex}}
         />
 
         <CustomInput

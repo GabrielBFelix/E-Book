@@ -1,9 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { Col, Button, Form, FormGroup, Label, Input, Alert } from 'reactstrap';
-import { useForm, Controller } from 'react-hook-form';
-import { ErrorMessage } from '@hookform/error-message';
+import { Button, Form, Alert } from 'reactstrap';
+import { useForm } from 'react-hook-form';
 
 import './styles.css';
 

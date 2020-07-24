@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormGroup, Input, Label, Button, Form, Alert } from 'reactstrap';
-import { useForm, Controller } from 'react-hook-form';
+import { FormGroup, Input, Label, Alert } from 'reactstrap';
+import { Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 const CustomInput = ({ label, type, name, text,defaultValue, placeholder, control, errors, rules }) => {
   return (
@@ -16,8 +16,8 @@ const CustomInput = ({ label, type, name, text,defaultValue, placeholder, contro
       <ErrorMessage as={<Alert color="danger" />} errors={errors} name={name}>
         {({ messages }) =>
           messages &&
-          Object.entries(messages).map(([type, message]) => (
-            <p className="text-danger" key={type}>
+          Object.entries(messages).map(([errorType, message]) => (
+            <p className="text-danger" key={errorType}>
               {message}
             </p>
           ))
