@@ -6,6 +6,9 @@ import { useForm, Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 
 import './styles.css';
+
+import CustomInput from '../../components/Input';
+
 import api from '../../services/api';
 
 const Livro = () => {
@@ -27,7 +30,7 @@ const Livro = () => {
 
   const onSubmit = async (data) => {
     try {
-      await api.post('/books', {...data}, { headers: { authorization: `Bearer ${userContext.user}` } });
+      await api.post('/books', { ...data }, { headers: { authorization: `Bearer ${userContext.user}` } });
 
       history.push('/');
     } catch (apiError) {
@@ -41,152 +44,94 @@ const Livro = () => {
       <Form className="book-form" onSubmit={handleSubmit(onSubmit)}>
         {error ? error.split('.').map((errorMessage) => <Alert color="danger">{errorMessage}</Alert>) : null}
         <h1 className="text-center">Cadastrar Livro</h1>
-        <FormGroup row>
-          <Label sm={2}>Nome</Label>
-          <Col sm={10}>
-            <Controller
-              as={<Input type="text" placeholder="Nome do livro" />}
-              name="name"
-              control={control}
-              rules={{ required: { value: true, message: 'Please provide a name' } }}
-            />
-            <ErrorMessage as={<Alert color="danger"></Alert>} errors={errors} name="name">
-              {({ messages }) =>
-                messages &&
-                Object.entries(messages).map(([type, message]) => (
-                  <Alert color="danger" key={type}>
-                    {message}
-                  </Alert>
-                ))
-              }
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label sm={2}>Autor</Label>
-          <Col sm={10}>
-            <Controller
-              as={<Input type="text" placeholder="Nome do autor" />}
-              name="author"
-              control={control}
-              rules={{ required: { value: true, message: 'Please provide a author name' } }}
-            />
-            <ErrorMessage as={<Alert color="danger"></Alert>} errors={errors} name="author">
-              {({ messages }) =>
-                messages &&
-                Object.entries(messages).map(([type, message]) => (
-                  <Alert color="danger" key={type}>
-                    {message}
-                  </Alert>
-                ))
-              }
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label sm={2}>Genêro</Label>
-          <Col sm={10}>
-            <Controller
-              as={<Input type="text" placeholder="Gênero do livro" />}
-              name="genre"
-              control={control}
-              rules={{ required: { value: true, message: 'Please provide a genre' } }}
-            />
-            <ErrorMessage as={<Alert color="danger"></Alert>} errors={errors} name="genre">
-              {({ messages }) =>
-                messages &&
-                Object.entries(messages).map(([type, message]) => (
-                  <Alert color="danger" key={type}>
-                    {message}
-                  </Alert>
-                ))
-              }
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label sm={2}>Editora</Label>
-          <Col sm={10}>
-            <Controller
-              as={<Input type="text" placeholder="Editora" />}
-              name="publisher"
-              control={control}
-              rules={{ required: { value: true, message: 'Please provide a publisher' } }}
-            />
-            <ErrorMessage as={<Alert color="danger"></Alert>} errors={errors} name="publisher">
-              {({ messages }) =>
-                messages &&
-                Object.entries(messages).map(([type, message]) => (
-                  <Alert color="danger" key={type}>
-                    {message}
-                  </Alert>
-                ))
-              }
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label sm={2}>Quantidade</Label>
-          <Col sm={10}>
-            <Controller
-              as={<Input type="number" placeholder="Quantidade de livros a serem vendidos..." />}
-              name="quantity"
-              control={control}
-              rules={{
-                required: { value: true, message: 'Please provide a quantity' },
-                min: { value: 1, message: 'Please provide at leat 1 book to sell' },
-              }}
-            />
-            <ErrorMessage as={<Alert color="danger"></Alert>} errors={errors} name="quantity">
-              {({ messages }) =>
-                messages &&
-                Object.entries(messages).map(([type, message]) => (
-                  <Alert color="danger" key={type}>
-                    {message}
-                  </Alert>
-                ))
-              }
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label sm={2}>Preço</Label>
-          <Col sm={10}>
-            <Controller
-              as={<Input type="number" placeholder="Enter a price" />}
-              name="price"
-              control={control}
-              rules={{
-                required: { value: true, message: 'Please provide a price' },
-                min: { value: 0, message: 'A price must be greater than R$0' },
-              }}
-            />
-            <ErrorMessage as={<Alert color="danger"></Alert>} errors={errors} name="price">
-              {({ messages }) =>
-                messages &&
-                Object.entries(messages).map(([type, message]) => (
-                  <Alert color="danger" key={type}>
-                    {message}
-                  </Alert>
-                ))
-              }
-            </ErrorMessage>
-          </Col>
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleText">Descrição</Label>
-          <Controller
-            as={<Input type="text" placeholder="Enter a description" />}
-            name="description"
-            control={control}
-            rules={{ required: { value: true, message: 'Please provide a description' } }}
-          />
-          <ErrorMessage as={<Alert color="danger"></Alert>} errors={errors} name="description">
-            {({ messages }) =>
-              messages && Object.entries(messages).map(([type, message]) => <p key={type}>{message}</p>)
-            }
-          </ErrorMessage>
-        </FormGroup>
+        <CustomInput
+          label="name"
+          type="text"
+          name="name"
+          text="Nome do livro"
+          defaultValue=""
+          placeholder="Enter the name of the book"
+          control={control}
+          errors={errors}
+          rules={{ required: { value: true, message: 'This field is required' } }}
+        />
+        <CustomInput
+          label="author"
+          type="text"
+          name="author"
+          text="Author"
+          defaultValue=""
+          placeholder="Enter the name of the author"
+          control={control}
+          errors={errors}
+          rules={{ required: { value: true, message: 'This field is required' } }}
+        />
+        <CustomInput
+          label="genre"
+          type="text"
+          name="genre"
+          text="Genero do livro"
+          defaultValue=""
+          placeholder="Enter the genre of the book"
+          control={control}
+          errors={errors}
+          rules={{ required: { value: true, message: 'This field is required' } }}
+        />
+        <CustomInput
+          label="publisher"
+          type="text"
+          name="publisher"
+          text="Nome da editor"
+          defaultValue=""
+          placeholder="Enter the name of the publisher"
+          control={control}
+          errors={errors}
+          rules={{ required: { value: true, message: 'This field is required' } }}
+        />
+        <CustomInput
+          label="quantity"
+          type="number"
+          name="quantity"
+          text="Quantidade de livros"
+          defaultValue={0}
+          placeholder="Enter the quantity"
+          control={control}
+          errors={errors}
+          rules={{
+            required: { value: true, message: 'Please provide a quantity' },
+            min: { value: 1, message: 'Please provide at leat 1 book to sell' },
+          }}
+        />
+
+        <CustomInput
+          label="price"
+          type="number"
+          name="price"
+          text="Preço do livro"
+          defaultValue={0}
+          placeholder="Enter the price"
+          control={control}
+          errors={errors}
+          rules={{
+            required: { value: true, message: 'Please provide a price' },
+            min: { value: 1, message: 'A price must be greater than R$0' },
+          }}
+        />
+
+        <CustomInput
+          label="description"
+          type="text"
+          name="description"
+          text="Descrição do livro"
+          defaultValue=""
+          placeholder="Enter the description"
+          control={control}
+          errors={errors}
+          rules={{
+            required: { value: true, message: 'Please provide a description' },
+          }}
+        />
+
         <div className="buttons">
           <Button onClick={() => history.push('/')} color="danger">
             Voltar
