@@ -23,6 +23,6 @@ router.route('/getMe').get(protect, getMe, getUser);
 
 router.route('/wishlist').get(protect, getWishList).post(protect, addItemToWishList);
 
-router.use('/:userId/books', protect, bookRoutes);
+router.use('/:userToken/books', protect, bookRoutes);
 
 module.exports = router;

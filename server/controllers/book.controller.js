@@ -2,8 +2,9 @@ const Book = require('../models/book.model');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const ApiFeatures = require('../utils/APIFeatures');
-
-
+const { promisify } = require('util');
+const config = require('config')
+const jwt = require('jsonwebtoken');
 const filterObj = (obj, allowedFields) => {
   const newObj = {};
 
@@ -12,7 +13,7 @@ const filterObj = (obj, allowedFields) => {
       newObj[key] = obj[key];
     }
   });
-  console.log(newObj)
+  console.log(newObj);
   return newObj;
 };
 
@@ -35,7 +36,13 @@ exports.createBook = catchAsync(async (req, resp, next) => {
 exports.getAllBooks = catchAsync(async (req, resp, next) => {
   let filter = {};
 
-  if (req.params.userId) filter.seller = req.params.userId;
+  if (req.params.userToken) {
+    const decoded = await jwt.verify(req.params.userToken, config.get('JWT.SECRET_KEY'));
+    console.log(decoded)
+    filter.seller = decoded.id;
+  }
+
+  console.log(filter)
 
   let apiFeatures = new ApiFeatures(Book.find(filter), req.query).filter().sort().limitFields().paginate();
 
@@ -75,7 +82,7 @@ exports.updateBook = catchAsync(async (req, resp, next) => {
   const { bookId } = req.params;
   const userId = req.user.id;
 
-  const allowedFieds = ['quantity', 'genres', 'price', 'description']
+  const allowedFieds = ['quantity', 'genres', 'price', 'description'];
 
   const filteredBody = filterObj(req.body, allowedFieds);
 
