@@ -42,7 +42,17 @@ function VerPerfil() {
     fetchData();
 
   }, [userContext.user]);
-  //const handleAddressChange = ({ target: input }) => setUser({ ...user, [input.name]: input.value })
+  const handleAddressChange = ({ target: input }) => setAddress({ ...address, [input.name]: input.value })
+
+  const handleSubmit = async () => {
+    try {
+      const result = await api.patch('/user/updateMe', { username, email, address }, { headers: { authorization: `Bearer ${userContext.user}` } });
+      console.log(result);
+    } catch (apiError){
+      console.log(apiError.response);
+      setError(apiError.response.data.message);
+    }
+  };
 
   return isLoading ? (
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
@@ -58,54 +68,53 @@ function VerPerfil() {
           <FormGroup row>
             <Label sm={2}>Nome</Label>
             <Col sm={10}>
-              <Input type="text" name="username" value={username} readOnly></Input>
+              <Input type="text" name="username" value={username} onChange={(event) => setUsername(event.target.value)}></Input>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Email</Label>
             <Col sm={10}>
-              <Input type="email" name="email" value={email} readOnly></Input>
+              <Input type="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)}></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Rua</Label>
             <Col sm={10}>
-              <Input type="text" name="street" value={address.street} readOnly></Input>
+              <Input type="text" name="street" value={address.street} onChange={handleAddressChange}></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Numero</Label>
             <Col sm={10}>
-              <Input type="text" name="number" value={address.number} readOnly></Input>
+              <Input type="text" name="number" value={address.number} onChange={handleAddressChange}></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Bairro</Label>
             <Col sm={10}>
-              <Input type="text" name="neighborhood" value={address.neighborhood} readOnly></Input>
+              <Input type="text" name="neighborhood" value={address.neighborhood} onChange={handleAddressChange}></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Estado</Label>
             <Col sm={10}>
-              <Input type="text" name="state" value={address.state} readOnly></Input>
+              <Input type="text" name="state" value={address.state} onChange={handleAddressChange}></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Pais</Label>
             <Col sm={10}>
-              <Input type="text" name="country" value={address.country} readOnly></Input>
+              <Input type="text" name="country" value={address.country} onChange={handleAddressChange}></Input>
             </Col>
           </FormGroup>
         </Form>
-        <div className="buttons">
-          <Button>botão</Button>
-          <Button>botão</Button>
+        <div className="buttons-profile">
+          <Button color="primary" onClick={handleSubmit}>Salvar alterações</Button>
         </div>
       </section>
     </div>
