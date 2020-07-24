@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { createContext } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 export const BooksContext = createContext(null);
@@ -6,11 +6,11 @@ export const BooksContext = createContext(null);
 const BooksProvider = ({ children }) => {
   const [books, setBooks] = useLocalStorage('books', null);
 
-  const saveBooks = (books) => {
-    setBooks(books);
+  const saveBooks = (booksFromApi) => {
+    setBooks(booksFromApi);
   };
 
-  return <BooksContext.Provider value={{ books, setBooks }}> {children}</BooksContext.Provider>;
+  return <BooksContext.Provider value={{ books, saveBooks }}> {children}</BooksContext.Provider>;
 };
 
 export default BooksProvider

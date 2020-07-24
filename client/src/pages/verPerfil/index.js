@@ -7,6 +7,7 @@ import api from '../../services/api';
 import './styles.css';
 
 function VerPerfil() {
+
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [address, setAddress] = useState({
@@ -31,20 +32,24 @@ function VerPerfil() {
         setEmail(email);
         setAddress(address);
         setIsLoading(false);
-      } catch (error) {
+
+      } catch (apiError) {
         setIsLoading(false);
         setError(true);
-        console.log(error);
+        console.log(apiError);
       }
     }
     fetchData();
-  }, []);
+
+  }, [userContext.user]);
   //const handleAddressChange = ({ target: input }) => setUser({ ...user, [input.name]: input.value })
 
   return isLoading ? (
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
       <Spinner></Spinner>
     </Row>
+  ) : error ? (
+    <p>Error</p>
   ) : (
     <div className="perfil">
       <section>

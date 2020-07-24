@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { FormGroup, Input, Label, Button, Form, Container, Row, Col } from 'reactstrap';
+import React, {  useContext } from 'react';
+import { FormGroup, Input, Label, Button, Form, Container, Row } from 'reactstrap';
 import { useForm, Controller } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { Link, useHistory } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 import api from '../../services/api';
 function LoginPage() {
-  const { register, handleSubmit, errors, control, setError, clearErrors } = useForm({
+  const { handleSubmit, errors, control, setError, clearErrors } = useForm({
     defaultValues: {
       email: '',
       password: '',

@@ -25,7 +25,7 @@ exports.getCheckoutSession = catchAsync(async (req, resp, next) => {
     line_items: [order],
   });
 
-  const bookings = await Booking.create({ book, user: req.user._id, price: order.amount });
+  await Booking.create({ book, user: req.user._id, price: order.amount });
 
   return resp.status(200).json({
     status: 'success',

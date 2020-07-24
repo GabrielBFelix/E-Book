@@ -48,7 +48,7 @@ const DetailBook = (props) => {
 
     const stripe = await stripePromise;
 
-    const { error } = await stripe.redirectToCheckout({
+     await stripe.redirectToCheckout({
       sessionId,
     });
   };
@@ -67,9 +67,9 @@ const DetailBook = (props) => {
         setReviewError(null);
       setReload((state) => !state)
       console.log(response);
-    } catch (error) {
-      setReviewError(error.response.data.message)
-      console.log(error.response);
+    } catch (apiError) {
+      setReviewError(apiError.response.data.message)
+      console.log(apiError.response);
     }
   };
   useEffect(() => {
@@ -78,14 +78,14 @@ const DetailBook = (props) => {
         const { data } = await api.get(`/books/${params.id}`);
         setBook(data.data.doc[0]);
         setIsLoading(false);
-      } catch (error) {
+      } catch (apiError) {
         setIsLoading(false);
         setError(true);
-        console.log(error);
+        console.log(apiError);
       }
     }
     fetchData();
-  }, [reload]);
+  }, [reload, params.id]);
 
   return isLoading ? (
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
