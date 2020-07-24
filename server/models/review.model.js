@@ -12,9 +12,9 @@ const reviewSchema = new mongoose.Schema(
 
     rating: {
       type: Number,
+      required: true,
       min: 1,
       max: 10,
-      default: 5,
     },
 
     createdAt: {
@@ -43,11 +43,11 @@ const reviewSchema = new mongoose.Schema(
 reviewSchema.index({ user: 1, book: 1 });
 
 reviewSchema.statics.calcAvgRatings = async function (bookId) {
-  const [stats] = await this.aggregate(
+  const [stats] = await this.aggregate([
     { $match: { book: bookId } },
 
-    { $group: { _id: '$book', avgRating: { $avg: '$rating' }, nRating: { $sum: 1 } } }
-  );
+    { $group: { _id: '$book', avgRating: { $avg: '$rating' }, nRating: { $sum: 1 } } },
+  ]);
 
   if (stats) {
     const { avgRating, nRating } = stats;
@@ -56,6 +56,12 @@ reviewSchema.statics.calcAvgRatings = async function (bookId) {
     await Book.findByIdAndUpdate(bookId, { ratingsQuantity: 0, ratingsAverage: 5 });
   }
 };
+
+reviewSchema.pre(/^find/, function (next) {
+  this.populate({ path: 'user', select: 'name' });
+
+  return next();
+});
 
 reviewSchema.post('save', function () {
   this.constructor.calcAvgRatings(this.book);

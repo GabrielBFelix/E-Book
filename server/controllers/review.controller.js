@@ -1,4 +1,5 @@
 const Review = require('../models/review.model');
+const Booking = require('../models/booking.model');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const ApiFeatures = require('../utils/APIFeatures');
@@ -16,10 +17,20 @@ const filterObj = (obj, allowedFields) => {
 };
 
 exports.createReview = catchAsync(async (req, resp, next) => {
-  const allowedFields = ['review', 'ratings', 'book'];
+  const allowedFields = ['review', 'rating', 'book'];
+
+  const booking =await Booking.find({ user: req.user.id, book: req.body.book });
+
+  if (booking.length === 0) {
+    return next(new AppError('You are not allowed to comment, you have not ordered a book', '400'));
+  }
+
+  console.log(booking)
 
   const fields = filterObj(req.body, allowedFields);
   fields.user = req.user.id;
+
+  console.log(fields)
 
   const newDoc = await Review.create(fields);
 

@@ -8,9 +8,10 @@ import Book from '../../components/Book';
 import { UserContext } from '../../contexts/UserContext';
 
 import { useParams } from 'react-router-dom';
-import { Spinner, Row, Button } from 'reactstrap';
+import { Spinner, Row, Button, Container, Col, Input, Alert } from 'reactstrap';
 
 import api from '../../services/api';
+import Reviews from '../../components/Reviews';
 
 const stripePromise = loadStripe(
   'pk_test_51H6qjWKG6owRZi3iITen6xSLl6rmh8miEJVJHF3BA35HTBAFV5lY8A897sQBdFxJCYuQeJqOsaa2MWT5A6baioBG00044ybSDm'
@@ -18,29 +19,58 @@ const stripePromise = loadStripe(
 
 const DetailBook = (props) => {
   const [book, setBook] = useState({});
+  const [reload, setReload] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [reviewObj, setReviewObj] = useState({ rating: 0, review: '' });
+  const [reviewError , setReviewError] = useState(null);
   const userContext = useContext(UserContext);
   const params = useParams();
 
-  const handleClick = async (event) => {
+  console.log(book);
+
+  const handleBuyClick = async (event) => {
     event.preventDefault();
 
     if (!userContext.user) return;
 
-    const response = await api.post('/booking/checkout-session', { book } , {
-      headers : {
-        'authorization' : `Bearer ${userContext.user}`
+    const response = await api.post(
+      '/booking/checkout-session',
+      { book },
+      {
+        headers: {
+          authorization: `Bearer ${userContext.user}`,
+        },
       }
-    });
+    );
 
-    const sessionId = response.data.session.id
+    const sessionId = response.data.session.id;
 
     const stripe = await stripePromise;
 
     const { error } = await stripe.redirectToCheckout({
       sessionId,
     });
+  };
+
+  const handleCommentClick = async (event) => {
+    try {
+      const response = await api.post(
+        `/books/${params.id}/reviews`,
+        { ...reviewObj, book: params.id },
+        {
+          headers: {
+            authorization: `Bearer ${userContext.user}`,
+          },
+        }
+      );  
+        setReviewError(null);
+      setReload((state) => !state)
+      console.log(response);
+    } catch (error) {
+      setReviewError(error.response.data.message)
+      console.log(error.response);
+    }
   };
   useEffect(() => {
     async function fetchData() {
@@ -55,7 +85,7 @@ const DetailBook = (props) => {
       }
     }
     fetchData();
-  }, []);
+  }, [reload]);
 
   return isLoading ? (
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
@@ -64,12 +94,39 @@ const DetailBook = (props) => {
   ) : error ? (
     <p>Você não tem autorização</p>
   ) : (
-    <>
+    <Container style={{ border: '1px solid #ddd', display: 'flex', flexDirection: 'column', padding: '10px' }}>
       <Book book={book}></Book>
-      <Button color="primary" onClick={handleClick}>
-        Checkout
+      <Button color="primary" onClick={handleBuyClick}>
+        Comprar
       </Button>
-    </>
+      {reviewError && <Alert color='danger'>{reviewError}</Alert>}
+      <Row>
+        <Col sm={10}>
+          Review :
+          <textarea
+            style={{ margin: '10px', width: '100%' }}
+            value={reviewObj.review}
+            onChange={(event) => setReviewObj({ ...reviewObj, review: event.target.value })}
+          ></textarea>
+        </Col>
+      </Row>
+      <Row>
+        <Col style={{ display: 'flex', flexDirection:'column', justifyContent: 'center' }}>
+          <span> Rating : </span>
+          <Input
+            type="number"
+            min={0}
+            max={10}
+            value={reviewObj.rating}
+            onChange={(event) => setReviewObj({ ...reviewObj, rating: event.target.value })}
+          ></Input>
+        </Col>
+      </Row>
+      <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Button style={{margin: '10px'}} onClick={handleCommentClick}> Commentar </Button>
+      </Row>
+      <Reviews reload={reload} bookId={book.id}></Reviews>
+    </Container>
   );
 };
 
