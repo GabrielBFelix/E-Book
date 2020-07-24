@@ -33,9 +33,9 @@ function CadastroPage() {
       console.log(result);
       userContext.saveUser(result.data.data.token);
       history.push('/');
-    } catch (error) {
-      console.log(error.response);
-      setError(error.response.data.message);
+    } catch (apiError) {
+      console.log(apiError.response);
+      setError(apiError.response.data.message);
     }
   };
   const handleAddressChange = ({ target: input }) => setAddress({ ...address, [input.name]: input.value });

@@ -5,7 +5,6 @@ import api from '../../services/api';
 
 const Reviews = ({ bookId, reload }) => {
   const [reviews, setReviews] = useState([]);
-  const [authors, setAuthors] = useState([])
   useEffect(() => {
     (async () => {
       try {
