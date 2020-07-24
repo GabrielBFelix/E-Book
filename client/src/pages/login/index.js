@@ -5,6 +5,7 @@ import { ErrorMessage } from '@hookform/error-message';
 import { Link, useHistory } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext';
+import './loginPageStyles.scss'
 
 import api from '../../services/api';
 function LoginPage() {
@@ -83,17 +84,17 @@ function LoginPage() {
           <Button color="primary" type="submit" style={{ width: '25%' }}>
             Login
           </Button>
-          <Link
+          <Link className="button-amarelo"
             to="/cadastro"
-            style={{
+             style={{
               textDecoration: 'none',
               color: '#000',
               width: '25%',
-              backgroundColor: '#AEAF49',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-            }}
+              borderRadius: '.25rem', 
+            }} 
           >
             Cliente novo? Cadastre-se
           </Link>

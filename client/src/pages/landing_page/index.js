@@ -30,7 +30,7 @@ export default class HomePage extends Component {
         {this.state.books.map((book) => (
           <div key={book._id}>
             <Book book={book}>
-              <Link style={{color : '#fff', textDecoration: 'none', border: '1px solid #614385', padding : '10px' , backgroundColor: '#000428'}} to={`/books/${book._id}`}> Ver detalhes</Link>
+              <Link className="button-detail" style={{color : '#fff', textDecoration: 'none', border: '1px solid #614385', padding : '10px' , backgroundColor: '#000428', borderRadius: '.25rem'}} to={`/books/${book._id}`}> Ver detalhes</Link>
             </Book>
           </div>
         ))}

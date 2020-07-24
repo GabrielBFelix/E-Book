@@ -18,3 +18,8 @@
   margin-top: 5px;
   line-height: 24px;
 }
+
+.button-detail:hover {
+  opacity: 75%;
+  transition: 0.25s;
+}
