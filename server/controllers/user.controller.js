@@ -6,6 +6,7 @@ const sharp = require('sharp');
 const handlerFactory = require('./handlerFactory');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
+const { query } = require('express');
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
@@ -46,7 +47,6 @@ exports.resizeUserPhoto = catchAsync(async (req, resp, next) => {
 
   return next();
 });
-
 
 exports.getMe = (req, resp, next) => {
   req.params.id = req.user.id;
@@ -89,9 +89,15 @@ exports.deleteMe = catchAsync(async (req, resp, next) => {
 exports.getWishList = catchAsync(async (req, resp, next) => {
   const { id } = req.user;
 
-  const user = await (await User.findById(id)).populate('wishList');
+  if (!id) {
+    return next(new AppError('User not found, provide a valid token', '404'));
+  }
 
-  return resp.status(200).json({ status : 'sucess', data: user.wishList });
+  const query = User.findById(id).populate({ path: 'wishList', select: 'name price genre _id' });
+
+  const user = await query;
+
+  return resp.status(200).json({ status: 'sucess', data: user.wishList });
 });
 
 exports.addItemToWishList = catchAsync(async (req, resp, next) => {
@@ -104,38 +110,32 @@ exports.addItemToWishList = catchAsync(async (req, resp, next) => {
   const newUserWithUpdatedWishList = await user.save({ validateBeforeSave: false });
 
   return resp.status(201).json({
-    status : 'sucess',
-    data:  newUserWithUpdatedWishList.wishList
-  })
+    status: 'sucess',
+    data: newUserWithUpdatedWishList.wishList,
+  });
 });
 
 exports.deleteItemFromWishList = catchAsync(async (req, resp, next) => {
   const { id } = req.user;
-  console.log(req.body.item);
 
-  if(!req.body.item)
-    return next(new AppError('Provide an item', '400'));
+  if (!req.body.item) return next(new AppError('Provide an item', '400'));
+
   const user = await User.findById(id);
-  
-  if(!user)
-    return next(new AppError('User not found', '404'));
 
-  const newWishlist = user.wishList.filter((item) => {
-    
-    console.log(item !== req.body.item, item, req.body.item);
+  if (!user) return next(new AppError('User not found, provide a valid token', '404'));
 
-    return item !== req.body.item;
-  
+  user.wishList = user.wishList.filter((item) => {
+    if (item) {
+      const newItem = item.toString()
+      return newItem !== req.body.item;
+    }
   });
-  console.log(newWishlist);
-
-
   const newUserWithUpdatedWishList = await user.save({ validateBeforeSave: false, j: true });
 
   return resp.status(200).json({
-    status : 'sucess',
-    data:  newUserWithUpdatedWishList.wishList
-  })
+    status: 'sucess',
+    data: newUserWithUpdatedWishList.wishList,
+  });
 });
 
 exports.getUser = handlerFactory.getOne(User);
