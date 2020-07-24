@@ -3,6 +3,7 @@ const factory = require('./handlerFactory');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/AppError');
 const config = require('config');
+const APIFeatures = require('../utils/APIFeatures');
 const stripe = require('stripe')(config.get('STRIPE.SECRET_KEY'));
 
 exports.getCheckoutSession = catchAsync(async (req, resp, next) => {
@@ -34,8 +35,9 @@ exports.getCheckoutSession = catchAsync(async (req, resp, next) => {
 });
 
 exports.getAllBookings = catchAsync(async (req, resp, next) => {
+  const features = new APIFeatures(Booking.find({ user: req.user.id }), req.query).filter().sort().limitFields();
 
-  const bookings = await Booking.find({ 'user': req.user.id });
+  const bookings = await features.query;
 
   return resp.status(200).json({
     status: 'success',
