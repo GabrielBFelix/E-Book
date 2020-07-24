@@ -23,6 +23,7 @@ const Header = () => {
             <Link to="/user">Meu perfil</Link>
             <Link to='/myBooks'>Livros colocados a venda</Link>
             <Link to="/cadastro_livro">Cadastrar Livro</Link>
+            <Link to='/wishlist'>Lista de desejos</Link>
             <Button onClick={(event) => userContext.saveUser(null)}>Sair</Button>
           </>
         ) : (

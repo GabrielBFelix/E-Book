@@ -7,7 +7,7 @@ import Book from '../../components/Book';
 
 import { UserContext } from '../../contexts/UserContext';
 
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { Spinner, Row, Button, Container, Col, Input, Alert } from 'reactstrap';
 
 import api from '../../services/api';
@@ -19,14 +19,14 @@ const stripePromise = loadStripe(
 
 const DetailBook = (props) => {
   const [book, setBook] = useState({});
-  const [wishList, setWishList] = useState('');
   const [reload, setReload] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [reviewObj, setReviewObj] = useState({ rating: 0, review: '' });
-  const [reviewError , setReviewError] = useState(null);
+  const [reviewError, setReviewError] = useState(null);
   const userContext = useContext(UserContext);
   const params = useParams();
+  const history = useHistory();
 
   console.log(book);
 
@@ -49,7 +49,7 @@ const DetailBook = (props) => {
 
     const stripe = await stripePromise;
 
-     await stripe.redirectToCheckout({
+    await stripe.redirectToCheckout({
       sessionId,
     });
   };
@@ -64,20 +64,28 @@ const DetailBook = (props) => {
             authorization: `Bearer ${userContext.user}`,
           },
         }
-      );  
-        setReviewError(null);
-      setReload((state) => !state)
+      );
+      setReviewError(null);
+      setReload((state) => !state);
       console.log(response);
     } catch (apiError) {
-      setReviewError(apiError.response.data.message)
+      setReviewError(apiError.response.data.message);
       console.log(apiError.response);
     }
   };
 
   const handleWishClick = async () => {
-    setWishList(params.id);
-    const response = await api.post('/user/wishlist', {item: params.id}, { headers: { authorization: `Bearer ${userContext.user}` } })
-    console.log(response)
+    try {
+      const response = await api.post(
+        '/user/wishlist',
+        { item: params.id },
+        { headers: { authorization: `Bearer ${userContext.user}` } }
+      );
+
+      history.push('/wishlist');
+    } catch (error) {
+      console.log(error.response);
+    }
   };
   useEffect(() => {
     async function fetchData() {
@@ -106,10 +114,10 @@ const DetailBook = (props) => {
       <Button color="primary" onClick={handleBuyClick}>
         Comprar
       </Button>
-      <Button color="success" style={{marginTop: '10px'}} onClick={handleWishClick}>
+      <Button color="success" style={{ marginTop: '10px' }} onClick={handleWishClick}>
         Adicionar a lista de desejos
       </Button>
-      {reviewError && <Alert color='danger'>{reviewError}</Alert>}
+      {reviewError && <Alert color="danger">{reviewError}</Alert>}
       <Row>
         <Col sm={10}>
           Review :
@@ -121,7 +129,7 @@ const DetailBook = (props) => {
         </Col>
       </Row>
       <Row>
-        <Col style={{ display: 'flex', flexDirection:'column', justifyContent: 'center' }}>
+        <Col style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <span> Rating : </span>
           <Input
             type="number"
@@ -133,7 +141,10 @@ const DetailBook = (props) => {
         </Col>
       </Row>
       <Row style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <Button style={{margin: '10px'}} onClick={handleCommentClick}> Commentar </Button>
+        <Button style={{ margin: '10px' }} onClick={handleCommentClick}>
+          {' '}
+          Commentar{' '}
+        </Button>
       </Row>
       <Reviews reload={reload} bookId={book.id}></Reviews>
     </Container>
