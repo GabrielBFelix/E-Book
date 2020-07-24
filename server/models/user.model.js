@@ -49,11 +49,11 @@ const userSchema = new mongoose.Schema({
   ],
 
   address: {
-    street: { type: String },
-    number: { type: String },
-    neighborhood: { type: String },
-    country: { type: String },
-    state: { type: String },
+    street: { type: String , required : true },
+    number: { type: String , required : true},
+    neighborhood: { type: String, required : true },
+    country: { type: String, required : true },
+    state: { type: String, required : true },
   },
 
   active: {
