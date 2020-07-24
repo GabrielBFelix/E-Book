@@ -7,8 +7,17 @@ import api from '../../services/api';
 import './styles.css';
 
 function VerPerfil() {
-  const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState('true');
+
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [address, setAddress] = useState({
+    street: '',
+    number: '',
+    neighborhood: '',
+    country: '',
+    state: '',
+  });
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const userContext = useContext(UserContext);
   useEffect(() => {
@@ -17,11 +26,13 @@ function VerPerfil() {
         const { data } = await api.get('/user/getMe', {
           headers: { authorization: `Bearer ${userContext.user}` },
         });
-
-        console.log(data.data.doc);
-        setUser(data.data.doc);
+        const { username, email, address } = data.data.doc;
+        console.log(username);
+        setUsername(username);
+        setEmail(email);
+        setAddress(address);
         setIsLoading(false);
-        console.log(data.data.doc);
+
       } catch (apiError) {
         setIsLoading(false);
         setError(true);
@@ -29,7 +40,9 @@ function VerPerfil() {
       }
     }
     fetchData();
+
   }, [userContext.user]);
+  //const handleAddressChange = ({ target: input }) => setUser({ ...user, [input.name]: input.value })
 
   return isLoading ? (
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
@@ -45,48 +58,48 @@ function VerPerfil() {
           <FormGroup row>
             <Label sm={2}>Nome</Label>
             <Col sm={10}>
-              <Input type="text" name="username" value={user.username}></Input>
+              <Input type="text" name="username" value={username} readOnly></Input>
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label sm={2}>Email</Label>
             <Col sm={10}>
-              <Input type="email" name="email" value={user.email}></Input>
+              <Input type="email" name="email" value={email} readOnly></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Rua</Label>
             <Col sm={10}>
-              <Input type="text" name="street" value={user.address[0].street}></Input>
+              <Input type="text" name="street" value={address.street} readOnly></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Numero</Label>
             <Col sm={10}>
-              <Input type="text" name="number" value={user.address[0].number}></Input>
+              <Input type="text" name="number" value={address.number} readOnly></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Bairro</Label>
             <Col sm={10}>
-              <Input type="text" name="neighborhood" value={user.address[0].neighborhood}></Input>
+              <Input type="text" name="neighborhood" value={address.neighborhood} readOnly></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Estado</Label>
             <Col sm={10}>
-              <Input type="text" name="state" value={user.address[0].state}></Input>
+              <Input type="text" name="state" value={address.state} readOnly></Input>
             </Col>
           </FormGroup>
 
           <FormGroup row>
             <Label sm={2}>Pais</Label>
             <Col sm={10}>
-              <Input type="text" name="country" value={user.address[0].country}></Input>
+              <Input type="text" name="country" value={address.country} readOnly></Input>
             </Col>
           </FormGroup>
         </Form>
