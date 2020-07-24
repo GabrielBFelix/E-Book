@@ -1,11 +1,12 @@
-import React, {  useContext } from 'react';
-import { FormGroup, Input, Label, Button, Form, Container, Row } from 'reactstrap';
-import { useForm, Controller } from 'react-hook-form';
-import { ErrorMessage } from '@hookform/error-message';
+import React, { useContext } from 'react';
+import { Button, Form, Container, Row } from 'reactstrap';
+import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext';
-import './loginPageStyles.scss'
+import './loginPageStyles.scss';
+
+import CustomInput from '../../components/Input';
 
 import api from '../../services/api';
 function LoginPage() {
@@ -23,6 +24,7 @@ function LoginPage() {
 
   const onSubmit = async (data) => {
     try {
+      console.log(data);
       const response = await api.post('/auth/login', data);
       context.saveUser(response.data.data.token);
       clearErrors(['email', 'password']);
@@ -41,60 +43,48 @@ function LoginPage() {
         onSubmit={handleSubmit(onSubmit)}
         style={{ height: '80%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
       >
-        <FormGroup style={{ width: '75%', margin: ' 0 auto' }}>
-          <Label for="email">Email</Label>
-          <Controller
-            as={Input}
-            name="email"
-            control={control}
-            rules={{ required: 'This field is required', pattern: { value: emailRegex, message: 'Only valid emails' } }}
-          ></Controller>
-          <ErrorMessage errors={errors} name="email">
-            {({ messages }) =>
-              messages &&
-              Object.entries(messages).map(([type, message]) => (
-                <p className="text-danger" key={type}>
-                  {message}
-                </p>
-              ))
-            }
-          </ErrorMessage>
-        </FormGroup>
+        <CustomInput
+          label="email"
+          type="email"
+          name="email"
+          text="Email"
+          placeholder="Enter your email..."
+          defaultValue=""
+          control={control}
+          errors={errors}
+          rules={{ required: 'This field is required'  , pattern : emailRegex}}
+        />
 
-        <FormGroup style={{ width: '75%', margin: '5vh auto' }}>
-          <Label for="password">Password</Label>
-          <Controller
-            control={control}
-            as={<Input type="password" />}
-            name="password"
-            rules={{ required: 'This field is required', minLength: { value: 8, message: '8+ characteres' } }}
-          ></Controller>
-          <ErrorMessage errors={errors} name="password">
-            {({ messages }) =>
-              messages &&
-              Object.entries(messages).map(([type, message]) => (
-                <p className="text-danger" key={type}>
-                  {message}
-                </p>
-              ))
-            }
-          </ErrorMessage>
-        </FormGroup>
+        <CustomInput
+          label="password"
+          type="password"
+          name="password"
+          text="Password"
+          placeholder="Enter your password..."
+          defaultValue=""
+          control={control}
+          errors={errors}
+          rules={{
+            required: 'This field is required',
+            min: { value: 8, message: 'A password must have 8+ characters' },
+          }}
+        />
         <Row style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
           <Button color="primary" type="submit" style={{ width: '25%' }}>
             Login
           </Button>
-          <Link className="button-amarelo"
+          <Link
+            className="button-amarelo"
             to="/cadastro"
-             style={{
+            style={{
               textDecoration: 'none',
               color: '#000',
               width: '25%',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              borderRadius: '.25rem', 
-            }} 
+              borderRadius: '.25rem',
+            }}
           >
             Cliente novo? Cadastre-se
           </Link>

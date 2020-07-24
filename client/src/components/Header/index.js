@@ -21,6 +21,7 @@ const Header = () => {
           <>
             <Link style={{backgroundColor: "#000" , color: "#fff" , padding: '10px' , borderRadius: '10px'}} to="/bookings">Bookings</Link>
             <Link to="/user">Meu perfil</Link>
+            <Link to='/myBooks'>Livros colocados a venda</Link>
             <Link to="/cadastro_livro">Cadastrar Livro</Link>
             <Button onClick={(event) => userContext.saveUser(null)}>Sair</Button>
           </>

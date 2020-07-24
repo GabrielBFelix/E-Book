@@ -13,7 +13,7 @@ const Book = ({ book, children }) => {
   return (
     <article>
       <Row style={{ justifyContent: 'center' }}>
-        <strong style={{ ...textStyle, fontSize: '30px', transform: 'skew(20deg)' }}>{book.name}</strong>
+        <strong style={{ ...textStyle, fontSize: '30px' }}>{book.name}</strong>
       </Row>
       <p align="justify" style={textStyle}>
         {book.description}

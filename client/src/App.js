@@ -12,6 +12,18 @@ import HomePage from './pages/landing_page';
 import DetailBook from './pages/detail_book/';
 import VerPerfil from './pages/verPerfil';
 import BookingsPage from './pages/BookingsPage';
+import MyBooksPage from './pages/MyBooksPage';
+import MyBookPage from './pages/MyBookPage'
+
+const CustomRoute = ({ isPrivate, ...othersProperties }) => {
+  const userContext = useContext(UserContext);
+
+  if (isPrivate && !userContext.user) {
+    return <Redirect to="/"></Redirect>;
+  }
+
+  return <Route {...othersProperties}></Route>;
+};
 
 function App() {
   const userContext = useContext(UserContext);
@@ -20,28 +32,23 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route path="/books/:id" component={DetailBook} />
-
-        <Route exact path="/" component={HomePage} />
+        <CustomRoute exact path="/" component={HomePage}></CustomRoute>
+        <CustomRoute exact isPrivate={true} path="/books/:id" component={DetailBook} />
+        <CustomRoute exact isPrivate={true} path="/cadastro_livro" component={Livro} />
+        <CustomRoute isPrivate={true} exact path="/myBooks" component={MyBooksPage} />
+        <CustomRoute isPrivate={true} exact path="/myBooks/:bookId" component={MyBookPage} />
+        <CustomRoute isPrivate={true} component={VerPerfil} path="/user" exact />
+        <CustomRoute isPrivate={true} exact path="/bookings" component={BookingsPage} />
+        <Route
+          path="/cadastro"
+          exact
+          render={(...props) => (userContext.user ? <Redirect to="/" /> : <CadastroPage {...props}></CadastroPage>)}
+        />
         <Route
           exact
           path="/login"
           render={(...props) => (userContext.user ? <Redirect to="/" /> : <LoginPage {...props}></LoginPage>)}
         />
-        <Route path="/cadastro" render={(...props) => (userContext.user ? <Redirect to="/" /> : <CadastroPage {...props}></CadastroPage>)} />
-        <Route
-          path="/cadastro_livro"
-          render={(...props) => (userContext.user ? <Livro {...props} /> : <Redirect to="/" />)}
-        />
-        <Route
-          path="/user"
-          render={(...props) => (userContext.user ? <VerPerfil {...props} /> : <Redirect to="/" />)}
-        />
-
-        <Route
-          path="/bookings"
-          render={(props) => (userContext.user ? <BookingsPage {...props} /> : <Redirect to="/"></Redirect>)}
-        ></Route>
       </Switch>
     </div>
   );
