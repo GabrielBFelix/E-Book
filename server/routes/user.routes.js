@@ -12,7 +12,8 @@ const {
   uploadUserPhoto,
   resizeUserPhoto,
   getWishList,
-  addItemToWishList
+  addItemToWishList,
+  deleteItemFromWishList
 } = require('../controllers/user.controller');
 
 const { protect } = require('../controllers/auth.controller');
@@ -21,7 +22,7 @@ router.route('/updateMe').patch(protect, uploadUserPhoto, resizeUserPhoto, updat
 router.route('/deleteMe').delete(protect, deleteMe);
 router.route('/getMe').get(protect, getMe, getUser);
 
-router.route('/wishlist').get(protect, getWishList).post(protect, addItemToWishList);
+router.route('/wishlist').get(protect, getWishList).post(protect, addItemToWishList).delete(protect, deleteItemFromWishList);
 
 router.use('/:userToken/books', protect, bookRoutes);
 
