@@ -21,13 +21,8 @@ const bookSchema = new mongoose.Schema(
     },
 
     author: {
-      type: [String],
-      validate: {
-        validator: function (authorArray) {
-          return authorArray.length > 0;
-        },
-        message: 'A book must have at least one author',
-      },
+      type: String,
+      required: [true, 'A book must belong to one author']
     },
 
     price: {
@@ -59,14 +54,9 @@ const bookSchema = new mongoose.Schema(
       default: 5,
     },
 
-    genres: {
-      type: [String],
-      validate: {
-        validator: function (genresArray) {
-          return genresArray.length > 0;
-        },
-        message: 'A book must have at least one genre',
-      },
+    genre: {
+      type: String,
+      required: [true, 'A book must have a genre'],
       trim: true,
     },
 

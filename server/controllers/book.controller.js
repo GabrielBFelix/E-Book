@@ -17,7 +17,7 @@ const filterObj = (obj, allowedFields) => {
 };
 
 exports.createBook = catchAsync(async (req, resp, next) => {
-  const allowedFields = ['name', 'publisher', 'description', 'author', 'price', 'images', 'quantity', 'genres'];
+  const allowedFields = ['name', 'publisher', 'description', 'author', 'price', 'images', 'quantity', 'genre'];
 
   const fields = filterObj(req.body, allowedFields);
   fields.seller = req.user.id;
