@@ -1,11 +1,8 @@
-.login{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-    flex-direction: column;
+.button-amarelo {
+  background-color: #AEAF49;
 }
-.inputs{
-    display: flex;
-    flex-direction: column;
+
+.button-amarelo:hover {
+  background-color: #8b8c3a;
+  transition: 0.25s;
 }

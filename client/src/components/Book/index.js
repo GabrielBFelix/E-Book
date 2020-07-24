@@ -6,7 +6,7 @@ const textStyle = {
   backgroundImage: 'linear-gradient(to right bottom ,#614385 , #516395)',
   color: 'transparent',
   backgroundClip: 'text',
-  '-webkit-background-clip': 'text',
+  WebkitBackgroundClip: 'text',
 };
 
 const Book = ({ book, children }) => {
