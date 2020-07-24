@@ -28,7 +28,7 @@ exports.createReview = catchAsync(async (req, resp, next) => {
   console.log(booking)
 
   const fields = filterObj(req.body, allowedFields);
-  fields.user = req.user.id;
+  fields.user = req.user._id;
 
   console.log(fields)
 
