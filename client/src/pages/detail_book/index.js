@@ -19,6 +19,7 @@ const stripePromise = loadStripe(
 
 const DetailBook = (props) => {
   const [book, setBook] = useState({});
+  const [wishList, setWishList] = useState('');
   const [reload, setReload] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -72,6 +73,12 @@ const DetailBook = (props) => {
       console.log(apiError.response);
     }
   };
+
+  const handleWishClick = async () => {
+    setWishList(params.id);
+    const response = await api.post('/user/wishlist', {item: params.id}, { headers: { authorization: `Bearer ${userContext.user}` } })
+    console.log(response)
+  };
   useEffect(() => {
     async function fetchData() {
       try {
@@ -98,6 +105,9 @@ const DetailBook = (props) => {
       <Book book={book}></Book>
       <Button color="primary" onClick={handleBuyClick}>
         Comprar
+      </Button>
+      <Button color="success" style={{marginTop: '10px'}} onClick={handleWishClick}>
+        Adicionar a lista de desejos
       </Button>
       {reviewError && <Alert color='danger'>{reviewError}</Alert>}
       <Row>

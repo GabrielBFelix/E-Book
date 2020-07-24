@@ -14,6 +14,7 @@ import VerPerfil from './pages/verPerfil';
 import BookingsPage from './pages/BookingsPage';
 import MyBooksPage from './pages/MyBooksPage';
 import MyBookPage from './pages/MyBookPage'
+import WishList from './pages/wishList';
 
 const CustomRoute = ({ isPrivate, ...othersProperties }) => {
   const userContext = useContext(UserContext);
@@ -38,6 +39,7 @@ function App() {
         <CustomRoute isPrivate={true} exact path="/myBooks" component={MyBooksPage} />
         <CustomRoute isPrivate={true} exact path="/myBooks/:bookId" component={MyBookPage} />
         <CustomRoute isPrivate={true} component={VerPerfil} path="/user" exact />
+        <CustomRoute isPrivate={true} component={WishList} path="/wishList" exact />
         <CustomRoute isPrivate={true} exact path="/bookings" component={BookingsPage} />
         <Route
           path="/cadastro"

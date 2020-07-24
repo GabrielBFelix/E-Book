@@ -89,7 +89,7 @@ exports.deleteMe = catchAsync(async (req, resp, next) => {
 exports.getWishList = catchAsync(async (req, resp, next) => {
   const { id } = req.user;
 
-  const user = await User.findById(id);
+  const user = await (await User.findById(id)).populate('wishList');
 
   return resp.status(200).json({ status : 'sucess', data: user.wishList });
 });
@@ -111,12 +111,26 @@ exports.addItemToWishList = catchAsync(async (req, resp, next) => {
 
 exports.deleteItemFromWishList = catchAsync(async (req, resp, next) => {
   const { id } = req.user;
+  console.log(req.body.item);
 
-  const user = await User.findByIdAndUpdate(id);
+  if(!req.body.item)
+    return next(new AppError('Provide an item', '400'));
+  const user = await User.findById(id);
+  
+  if(!user)
+    return next(new AppError('User not found', '404'));
 
-  user.wishList = user.wishList.filter((item) => item.id !== req.body.item);
+  const newWishlist = user.wishList.filter((item) => {
+    
+    console.log(item !== req.body.item, item, req.body.item);
 
-  const newUserWithUpdatedWishList = await user.save({ validateBeforeSave: false });
+    return item !== req.body.item;
+  
+  });
+  console.log(newWishlist);
+
+
+  const newUserWithUpdatedWishList = await user.save({ validateBeforeSave: false, j: true });
 
   return resp.status(200).json({
     status : 'sucess',
