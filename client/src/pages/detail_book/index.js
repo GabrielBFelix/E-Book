@@ -85,7 +85,7 @@ const DetailBook = (props) => {
       }
     }
     fetchData();
-  }, [reload]);
+  }, [reload, params.id]);
 
   return isLoading ? (
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>

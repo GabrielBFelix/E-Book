@@ -21,7 +21,7 @@ const BookingsPage = () => {
         console.log(error);
       }
     })();
-  }, []);
+  }, [userContext.user]);
 
   return (
     <div>

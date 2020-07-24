@@ -44,13 +44,18 @@ function CadastroPage() {
     <div className="forms">
       <Form className="cadastro-form">
         <h1 className="text-center">Pagina de Cadastro</h1>
-        {error &&
-          error.split('Path').map((errorMessage) => {
-            if (errorMessage.indexOf('address.') !== -1) {
-              return <p>{errorMessage.split('address.')[1]}</p>;
-            }
-            return <p>{errorMessage}</p>;
-          }) || <p>{error}</p>}
+        {error ? (
+          Array.isArray(error) ? (
+            error.split('Path').map((errorMessage) => {
+              if (errorMessage.indexOf('address.') !== -1) {
+                return <p>{errorMessage.split('address.')[1]}</p>;
+              }
+              return <p>{errorMessage}</p>;
+            })
+          ) : (
+            <p>{error}</p>
+          )
+        ) : null}
         <FormGroup row>
           <Label sm={2}>Nome</Label>
           <Col sm={10}>

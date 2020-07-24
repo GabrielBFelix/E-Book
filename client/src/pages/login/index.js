@@ -8,7 +8,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 import api from '../../services/api';
 function LoginPage() {
-  const { register, handleSubmit, errors, control, setError, clearErrors } = useForm({
+  const { handleSubmit, errors, control, setError, clearErrors } = useForm({
     defaultValues: {
       email: '',
       password: '',

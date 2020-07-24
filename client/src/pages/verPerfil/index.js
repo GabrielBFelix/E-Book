@@ -9,7 +9,7 @@ import './styles.css';
 function VerPerfil() {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState('true');
-  const [error, setError] = useState('false');
+  const [error, setError] = useState(false);
   const userContext = useContext(UserContext);
   useEffect(() => {
     async function fetchData() {
@@ -29,13 +29,15 @@ function VerPerfil() {
       }
     }
     fetchData();
-  }, []);
+  }, [userContext.user]);
 
   return isLoading ? (
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
       <Spinner></Spinner>
     </Row>
-  ) : error ? <p>Error</p> : (
+  ) : error ? (
+    <p>Error</p>
+  ) : (
     <div className="perfil">
       <section>
         <h3 className="text-center">User Information</h3>

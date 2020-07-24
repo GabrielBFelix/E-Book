@@ -14,7 +14,7 @@ const Reviews = ({ bookId, reload }) => {
         console.log(error.response);
       }
     })();
-  }, [reload]);
+  }, [reload , bookId]);
 
   return reviews.map((review) => (
     <Container style={{ border: '2px solid #7b4397',  margin: '10px 0', padding: '10px' }}>
