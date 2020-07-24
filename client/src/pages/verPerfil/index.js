@@ -22,10 +22,10 @@ function VerPerfil() {
         setUser(data.data.doc);
         setIsLoading(false);
         console.log(data.data.doc);
-      } catch (error) {
+      } catch (apiError) {
         setIsLoading(false);
         setError(true);
-        console.log(error);
+        console.log(apiError);
       }
     }
     fetchData();
@@ -35,7 +35,7 @@ function VerPerfil() {
     <Row style={{ justifyContent: 'center', alignItems: 'center', height: '90vh' }}>
       <Spinner></Spinner>
     </Row>
-  ) : (
+  ) : error ? <p>Error</p> : (
     <div className="perfil">
       <section>
         <h3 className="text-center">User Information</h3>

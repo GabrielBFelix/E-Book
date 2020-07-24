@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Row, Col } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Row } from 'reactstrap';
 
 const textStyle = {
   backgroundImage: 'linear-gradient(to right bottom ,#614385 , #516395)',

@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import Header from './components/Header';
-import api from './services/api';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
