@@ -21,7 +21,7 @@ function CadastroPage() {
   const history = useHistory();
   const userContext = useContext(UserContext);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
     try {
       const result = await axios.post('http://localhost:3001/api/auth/signUp', {
         username,
@@ -167,7 +167,7 @@ function CadastroPage() {
           </Col>
         </FormGroup>
         <div className="buttons">
-          <Link to={'/login'}>
+          <Link to='/login'>
             <Button color="danger">Cancelar</Button>
           </Link>
 

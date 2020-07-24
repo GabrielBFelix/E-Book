@@ -58,7 +58,7 @@ reviewSchema.statics.calcAvgRatings = async function (bookId) {
 };
 
 reviewSchema.pre(/^find/, function (next) {
-  this.populate({ path: 'user', select: 'name' });
+  this.populate({ path: 'user' , select: 'username' });
 
   return next();
 });
