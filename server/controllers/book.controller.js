@@ -82,7 +82,7 @@ exports.updateBook = catchAsync(async (req, resp, next) => {
   const { bookId } = req.params;
   const userId = req.user.id;
 
-  const allowedFieds = ['quantity', 'genres', 'price', 'description'];
+  const allowedFieds = ['quantity', 'genre', 'price', 'description'];
 
   const filteredBody = filterObj(req.body, allowedFieds);
 

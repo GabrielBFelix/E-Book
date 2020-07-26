@@ -19,7 +19,7 @@ const Book = ({ book, children }) => {
         {book.description}
       </p>
       <p style={{ ...textStyle, fontSize: '30px' }}>Autor: {book.author}</p>
-      <p style={{ ...textStyle, fontSize: '20px' }}>Genero: {book.genres}</p>
+      <p style={{ ...textStyle, fontSize: '20px' }}>Genero: {book.genre}</p>
       <p style={{ ...textStyle, fontSize: '20px' }}>Average Rating : {book.ratingsAverage}</p>
       {children}
     </article>
